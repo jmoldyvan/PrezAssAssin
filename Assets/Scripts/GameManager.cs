@@ -27,29 +27,43 @@ public class GameManager : MonoBehaviour
     // for a certain number of people
     //     spawn a guy at a coordinate from the list of possible coordinates
     //     remove the coordinate from the list of possible coordinates or somehow skip over it so we don't use it again
+
+    public struct Coordinate
+{
+    public int X;
+    public int Y;
+
+    public Coordinate(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+}
+
     public void CreatePeople(int width, int height, int numberOfPeople)
     {
-        var possibleLocationsForTinyMen = new List<Tuple<int, int>>();
+        var possibleLocationsForTinyMen = new List<Coordinate>();
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                possibleLocationsForTinyMen.Add(new Tuple(x,y));
+                possibleLocationsForTinyMen.Add(new Coordinate(x, y));
             }
-        } 
+        }
 
-        Shuffle(possibleLocationsForTinyMen);
+        ShuffleList(possibleLocationsForTinyMen);
         
         for (int i = 0; i < numberOfPeople; i++)
-        { 
-            Instantiate(TinyMan, new Vector3(possibleLocationsForTinyMen[0].Item1, possibleLocationsForTinyMen[0].Item2,0));
+        {
+            var position = new Vector3(possibleLocationsForTinyMen[0].X, possibleLocationsForTinyMen[0].Y, 0);
+            Instantiate(TinyMan, position, Quaternion.identity);
             possibleLocationsForTinyMen.RemoveAt(0);
-        }      
+        }   
     }
 
-    public void Shuffle<T>(this IList<T> list)
+    public void ShuffleList<T>(IList<T> list)
     {    
-        var rng = new Random();
+        var rng = new System.Random();
         int n = list.Count;
         while (n > 1) {
             n--;
