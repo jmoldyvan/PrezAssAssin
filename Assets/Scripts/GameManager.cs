@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         
         for (int i = 0; i < numberOfPeople; i++)
         {
-            var position = new Vector3(possibleLocationsForTinyMen[0].X, possibleLocationsForTinyMen[0].Y, 0);
+            var position = new Vector3(possibleLocationsForTinyMen[0].X, possibleLocationsForTinyMen[0].Y, -16);
             Instantiate(TinyMan, position, Quaternion.identity);
             possibleLocationsForTinyMen.RemoveAt(0);
         }   
