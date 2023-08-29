@@ -3,7 +3,9 @@ guid: 63a030114cb390a438a35ed09511b576
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - TinyMan: {fileID: 6821366564465171471, guid: cada1498111a3e24c84124876eb17878, type: 3}
+  - Prez: {fileID: 8725738589443268455, guid: c360afea26a5d6246b71e1dd7fc61cd9, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
