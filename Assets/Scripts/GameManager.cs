@@ -5,6 +5,7 @@ using System;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject TinyMan;
     public GameObject Prez;
     public List<Image> Hearts;
+     public TilemapCollider2D tilemapCollider;
 
     private void Awake()
     {
@@ -63,25 +65,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CreatePeople(int width, int height, int numberOfPeople)
+public void CreatePeople(int width, int height, int numberOfPeople)
+{
+    var possibleLocations = new List<Coordinate>();
+    for (int i = 0; i < numberOfPeople; i++)
     {
-        var possibleLocations = new List<Coordinate>();
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                possibleLocations.Add(new Coordinate(x, y));
-            }
-        }
+        // Generate a random position within the boundary
+        Vector3 randomPosition = new Vector3(
+            Random.Range(0f, width),
+            Random.Range(0f, height),
+            5
+        );
 
-        ShuffleList(possibleLocations);
-        
-        for (int i = 0; i < numberOfPeople; i++)
+        // Perform a collision check using Physics2D.OverlapPoint
+        Collider2D hitCollider = Physics2D.OverlapPoint(randomPosition, 1 << LayerMask.NameToLayer("YourLayerNameHere")); // replace "YourLayerNameHere" with the actual layer name
+
+        // If hitCollider is null, it means there's no wall at that point
+        if (hitCollider == null)
         {
-            var position = new Vector3(possibleLocations[i].X, possibleLocations[i].Y, 5);
-            Instantiate(TinyMan, position, Quaternion.identity);
+            // The position is valid; you can instantiate the object there
+            Instantiate(TinyMan, randomPosition, Quaternion.identity);
+        }
+        else
+        {
+            // Decrement i to make sure we try again
+            i--;
         }
     }
+}
 
     public void ShuffleList<T>(IList<T> list)
     {
