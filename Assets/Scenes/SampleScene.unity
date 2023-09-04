@@ -527,6 +527,9 @@ Tilemap:
   m_Tiles:
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - first: {x: 17, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -1004,6 +1007,9 @@ Tilemap:
       m_AllTileFlags: 1073741825
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - first: {x: 8, y: 8, z: 0}
     second:
       serializedVersion: 2
@@ -1113,6 +1119,9 @@ Tilemap:
       m_AllTileFlags: 1073741825
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - first: {x: 7, y: 9, z: 0}
     second:
       serializedVersion: 2
@@ -1263,6 +1272,9 @@ Tilemap:
       m_AllTileFlags: 1073741825
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - first: {x: 7, y: 10, z: 0}
     second:
       serializedVersion: 2
@@ -1731,6 +1743,9 @@ Tilemap:
       m_AllTileFlags: 1073741825
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - first: {x: 8, y: 13, z: 0}
     second:
       serializedVersion: 2
@@ -2021,6 +2036,9 @@ Tilemap:
       m_AllTileFlags: 1073741825
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - first: {x: 26, y: 16, z: 0}
     second:
       serializedVersion: 2
@@ -2201,6 +2219,9 @@ Tilemap:
       m_AllTileFlags: 1073741825
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - first: {x: 8, y: 17, z: 0}
     second:
       serializedVersion: 2
@@ -2413,8 +2434,11 @@ Tilemap:
       m_AllTileFlags: 1073741825
 =======
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - first: {x: -8, y: 18, z: 0}
     second:
       serializedVersion: 2
@@ -2427,6 +2451,9 @@ Tilemap:
       m_AllTileFlags: 1073741825
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - first: {x: 7, y: 18, z: 0}
     second:
       serializedVersion: 2
@@ -2721,6 +2748,9 @@ Tilemap:
       m_AllTileFlags: 1073741825
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - first: {x: 10, y: 19, z: 0}
     second:
       serializedVersion: 2
@@ -2938,6 +2968,9 @@ Tilemap:
       m_AllTileFlags: 1073741825
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - first: {x: 10, y: 20, z: 0}
     second:
       serializedVersion: 2
@@ -5627,9 +5660,12 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 7b37db236066f8045a228a62d53293a3, type: 2}
   - m_RefCount: 43
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+<<<<<<< HEAD
+=======
 =======
   - m_RefCount: 43
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
     m_Data: {fileID: 11400000, guid: 13e55dd3e18e0c64ba26e4d89599dfe9, type: 2}
   - m_RefCount: 16
     m_Data: {fileID: 11400000, guid: 262e31748ef17a74284caa13f2c34e2a, type: 2}
@@ -5650,9 +5686,12 @@ Tilemap:
     m_Data: {fileID: 1150826406, guid: 2a2ea9dfffd26b24a859243581b1cd6a, type: 3}
   - m_RefCount: 43
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+<<<<<<< HEAD
+=======
 =======
   - m_RefCount: 43
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
     m_Data: {fileID: -668350745, guid: d3d7086e91ec63442b741ec92483c0ec, type: 3}
   - m_RefCount: 16
     m_Data: {fileID: -825315481, guid: d3d7086e91ec63442b741ec92483c0ec, type: 3}
@@ -5661,13 +5700,19 @@ Tilemap:
   m_TileMatrixArray:
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - m_RefCount: 164
 =======
   - m_RefCount: 42
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+<<<<<<< HEAD
+=======
 =======
   - m_RefCount: 40
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
     m_Data:
       e00: 1
       e01: 0
@@ -5741,13 +5786,19 @@ Tilemap:
       e33: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - m_RefCount: 82
 =======
   - m_RefCount: 33
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+<<<<<<< HEAD
+=======
 =======
   - m_RefCount: 2
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
     m_Data:
       e00: 0.000000059604645
       e01: -0.99999994
@@ -5789,6 +5840,9 @@ Tilemap:
       e33: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - m_RefCount: 121
 =======
   - m_RefCount: 22
@@ -5851,13 +5905,19 @@ Tilemap:
   m_TileColorArray:
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   - m_RefCount: 481
 =======
   - m_RefCount: 114
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+<<<<<<< HEAD
+=======
 =======
   - m_RefCount: 59
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -5865,13 +5925,19 @@ Tilemap:
   m_Origin: {x: -9, y: -9, z: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   m_Size: {x: 85, y: 55, z: 1}
 =======
   m_Size: {x: 84, y: 55, z: 1}
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+<<<<<<< HEAD
+=======
 =======
   m_Size: {x: 45, y: 30, z: 1}
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+>>>>>>> 34934d9795e5840be2270db1e49645a21508039c
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
