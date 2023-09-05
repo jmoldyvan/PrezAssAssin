@@ -7,13 +7,16 @@ using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.Tilemaps;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameObject TinyMan;
     public GameObject Prez;
     public List<Image> Hearts;
-     public TilemapCollider2D tilemapCollider;
+    public TilemapCollider2D tilemapCollider;
+    public Tilemap floorTilemap;
+    public Tilemap wallTilemap;
 
     private void Awake()
     {
@@ -50,8 +53,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SpawnPrez();
-        CreatePeople(40, 40, 100);
+        SpawnPrez(110, 50);
+        CreatePeople(110, 55, 100);
     }
 
     public struct Coordinate
@@ -65,33 +68,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-public void CreatePeople(int width, int height, int numberOfPeople)
-{
-    var possibleLocations = new List<Coordinate>();
-    for (int i = 0; i < numberOfPeople; i++)
+    public void CreatePeople(int width, int height, int numberOfPeople)
     {
-        // Generate a random position within the boundary
-        Vector3 randomPosition = new Vector3(
-            Random.Range(0f, width),
-            Random.Range(0f, height),
-            5
-        );
-
-        // Perform a collision check using Physics2D.OverlapPoint
-        Collider2D hitCollider = Physics2D.OverlapPoint(randomPosition, 1 << LayerMask.NameToLayer("YourLayerNameHere")); // replace "YourLayerNameHere" with the actual layer name
-
-        // If hitCollider is null, it means there's no wall at that point
-        if (hitCollider == null)
+        for (int i = 0; i < numberOfPeople; i++)
         {
-            // The position is valid; you can instantiate the object there
-            Instantiate(TinyMan, randomPosition, Quaternion.identity);
+            Vector3Int randomTilePosition = new Vector3Int(
+                Random.Range(-15, width),
+                Random.Range(0, height),
+                0
+            );
+
+            if (floorTilemap.HasTile(randomTilePosition) && !wallTilemap.HasTile(randomTilePosition))
+            {
+                Vector3 spawnPosition = floorTilemap.GetCellCenterWorld(randomTilePosition);
+                Instantiate(TinyMan, spawnPosition, Quaternion.identity);
+            }
+            else
+            {
+                i--;  // Decrement i to try again
+            }
         }
-        else
-        {
-            // Decrement i to make sure we try again
-            i--;
-        }
-    }
+    
 }
 
     public void ShuffleList<T>(IList<T> list)
@@ -108,11 +105,29 @@ public void CreatePeople(int width, int height, int numberOfPeople)
         }
     }
 
-    // Function to spawn a single Prez object
-    void SpawnPrez()
+    // Function to spawn a single Prez object// Function to spawn a single Prez object
+void SpawnPrez(int width, int height)
+{
+    for (int i = 0; i < 1; i++)  // We only want to spawn one Prez
     {
-        Instantiate(Prez, new Vector3(Random.Range(0f, 30f), Random.Range(0f, 30f), 1), Quaternion.identity);
+        Vector3Int randomTilePosition = new Vector3Int(
+            Random.Range(-15, width),
+            Random.Range(0, height),
+            0
+        );
+
+        if (floorTilemap.HasTile(randomTilePosition) && !wallTilemap.HasTile(randomTilePosition))
+        {
+            Vector3 spawnPosition = floorTilemap.GetCellCenterWorld(randomTilePosition);
+            Instantiate(Prez, spawnPosition, Quaternion.identity);
+            return;  // Exit the loop once the Prez is spawned
+        }
+        else
+        {
+            i--;  // Decrement i to try again
+        }
     }
+}
 
         public void LoseHeart(){
             Debug.Log("LoseHeart called in GameManager.");
