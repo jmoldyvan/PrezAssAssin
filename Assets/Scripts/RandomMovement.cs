@@ -9,24 +9,43 @@ public class RandomMovement : MonoBehaviour
     public float maxY = 20f;
     public float moveSpeed = 2f;
     public float moveDelay = 1f;
-    public float radiusMultiplier = 1.5f;  // radius for shuffling
+    public float radiusMultiplier = 1.5f;
+    public float repulsionRadius = 1f;  // new: the radius in which to check for other objects
+    public float repulsionForce = 2f;  // new: the strength of the repulsion force
 
     private Vector3 originalDirection;
     private bool collided = false;
     private Vector3 shuffleCenter;
     private int movementType;
 
-    private void Start()
+    void Start()
     {
-        // Initialize the Z position to 1
         transform.position = new Vector3(transform.position.x, transform.position.y, 1);
-        
-        // Decide the movement type at start
-        movementType = Random.Range(0, 2);  // Now only 0 and 1 are possible
+        movementType = Random.Range(0, 2);
         shuffleCenter = transform.position;
         originalDirection = GetRandomDirection();
         
         StartCoroutine(StartMovementPatterns());
+    }
+
+    void FixedUpdate()
+    {
+        // new: add repulsion logic
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, repulsionRadius);
+        Vector3 repulsionVector = Vector3.zero;
+
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.gameObject != gameObject)
+            {
+                Vector3 toCollider = hitCollider.transform.position - transform.position;
+                repulsionVector -= toCollider.normalized / toCollider.magnitude;
+            }
+        }
+
+        transform.position += repulsionVector * repulsionForce * Time.deltaTime;
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, 1);
     }
 
     private IEnumerator StartMovementPatterns()
@@ -46,7 +65,6 @@ public class RandomMovement : MonoBehaviour
                 case 1:
                     yield return StartCoroutine(Shuffle());
                     break;
-                // Removed case for ZigZag
             }
 
             yield return new WaitForSeconds(moveDelay);
@@ -64,8 +82,6 @@ public class RandomMovement : MonoBehaviour
         Vector3 targetPosition = shuffleCenter + new Vector3(Random.Range(-radiusMultiplier, radiusMultiplier), Random.Range(-radiusMultiplier, radiusMultiplier), 0f);
         yield return StartCoroutine(MoveToPosition(targetPosition));
     }
-
-    // Removed ZigZag Coroutine
 
     private IEnumerator MoveToPosition(Vector3 targetPosition)
     {
@@ -90,7 +106,7 @@ public class RandomMovement : MonoBehaviour
 
     private IEnumerator HandleCollision()
     {
-        yield return new WaitForSeconds(1f);  // Pause for 1 second
+        yield return new WaitForSeconds(1f);
         originalDirection = GetRandomDirection();
         collided = false;
     }
