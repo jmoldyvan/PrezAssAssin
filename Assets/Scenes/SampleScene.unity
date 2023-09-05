@@ -527,6 +527,7 @@ Tilemap:
   m_Tiles:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - first: {x: 17, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -822,6 +823,8 @@ Tilemap:
       m_AllTileFlags: 1073741825
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - first: {x: 0, y: 7, z: 0}
     second:
       serializedVersion: 2
@@ -1004,6 +1007,7 @@ Tilemap:
       m_AllTileFlags: 1073741825
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - first: {x: 8, y: 8, z: 0}
     second:
       serializedVersion: 2
@@ -1091,6 +1095,8 @@ Tilemap:
       m_AllTileFlags: 1073741825
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - first: {x: -8, y: 9, z: 0}
     second:
       serializedVersion: 2
@@ -1111,6 +1117,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - first: {x: 7, y: 9, z: 0}
@@ -1241,6 +1248,8 @@ Tilemap:
       m_AllTileFlags: 1073741825
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - first: {x: -8, y: 10, z: 0}
     second:
       serializedVersion: 2
@@ -1261,6 +1270,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - first: {x: 7, y: 10, z: 0}
@@ -1549,6 +1559,8 @@ Tilemap:
       m_AllTileFlags: 1073741825
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - first: {x: -8, y: 11, z: 0}
     second:
       serializedVersion: 2
@@ -1589,6 +1601,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+<<<<<<< HEAD
 <<<<<<< HEAD
   - first: {x: 18, y: 12, z: 0}
     second:
@@ -1709,6 +1722,8 @@ Tilemap:
       m_AllTileFlags: 1073741825
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - first: {x: -8, y: 13, z: 0}
     second:
       serializedVersion: 2
@@ -1729,6 +1744,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - first: {x: 8, y: 13, z: 0}
@@ -1909,6 +1925,8 @@ Tilemap:
       m_AllTileFlags: 1073741825
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - first: {x: -9, y: 14, z: 0}
     second:
       serializedVersion: 2
@@ -2019,6 +2037,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - first: {x: 26, y: 16, z: 0}
@@ -2189,6 +2208,8 @@ Tilemap:
       m_AllTileFlags: 1073741825
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - first: {x: -8, y: 17, z: 0}
     second:
       serializedVersion: 2
@@ -2199,6 +2220,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - first: {x: 8, y: 17, z: 0}
@@ -2415,6 +2437,8 @@ Tilemap:
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - first: {x: -8, y: 18, z: 0}
     second:
       serializedVersion: 2
@@ -2425,6 +2449,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - first: {x: 7, y: 18, z: 0}
@@ -2547,6 +2572,8 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - first: {x: -8, y: 19, z: 0}
@@ -2719,6 +2746,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - first: {x: 10, y: 19, z: 0}
@@ -2926,6 +2954,8 @@ Tilemap:
       m_AllTileFlags: 1073741825
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - first: {x: -8, y: 20, z: 0}
     second:
       serializedVersion: 2
@@ -2936,6 +2966,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - first: {x: 10, y: 20, z: 0}
@@ -5610,12 +5641,15 @@ Tilemap:
       m_AllTileFlags: 1073741825
 =======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   - m_RefCount: 465
 =======
@@ -5627,6 +5661,9 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 7b37db236066f8045a228a62d53293a3, type: 2}
   - m_RefCount: 43
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+=======
+  - m_RefCount: 43
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
 =======
   - m_RefCount: 43
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
@@ -5642,6 +5679,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_RefCount: 465
 =======
   - m_RefCount: 28
@@ -5653,6 +5691,9 @@ Tilemap:
 =======
   - m_RefCount: 43
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
+  - m_RefCount: 43
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
     m_Data: {fileID: -668350745, guid: d3d7086e91ec63442b741ec92483c0ec, type: 3}
   - m_RefCount: 16
     m_Data: {fileID: -825315481, guid: d3d7086e91ec63442b741ec92483c0ec, type: 3}
@@ -5661,10 +5702,14 @@ Tilemap:
   m_TileMatrixArray:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_RefCount: 164
 =======
   - m_RefCount: 42
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+=======
+  - m_RefCount: 40
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
 =======
   - m_RefCount: 40
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
@@ -5741,10 +5786,14 @@ Tilemap:
       e33: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_RefCount: 82
 =======
   - m_RefCount: 33
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+=======
+  - m_RefCount: 2
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
 =======
   - m_RefCount: 2
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
@@ -5766,7 +5815,11 @@ Tilemap:
       e32: 0
       e33: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_RefCount: 2
+=======
+  - m_RefCount: 1
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
 =======
   - m_RefCount: 1
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
@@ -5787,6 +5840,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - m_RefCount: 121
@@ -5811,6 +5865,8 @@ Tilemap:
       e32: 0
       e33: 1
 =======
+=======
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - m_RefCount: 0
     m_Data:
       e00: 0
@@ -5829,6 +5885,9 @@ Tilemap:
       e31: 0
       e32: 8.16e-43
       e33: 8.18e-43
+<<<<<<< HEAD
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
+=======
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
   - m_RefCount: 1
     m_Data:
@@ -5851,10 +5910,14 @@ Tilemap:
   m_TileColorArray:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_RefCount: 481
 =======
   - m_RefCount: 114
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+=======
+  - m_RefCount: 59
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
 =======
   - m_RefCount: 59
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
@@ -5865,10 +5928,14 @@ Tilemap:
   m_Origin: {x: -9, y: -9, z: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Size: {x: 85, y: 55, z: 1}
 =======
   m_Size: {x: 84, y: 55, z: 1}
 >>>>>>> 596c2f42cf5ae727e39280756ec40cf832c2e0be
+=======
+  m_Size: {x: 45, y: 30, z: 1}
+>>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
 =======
   m_Size: {x: 45, y: 30, z: 1}
 >>>>>>> parent of ca1fbdd (messing with spawing inside colliders)
