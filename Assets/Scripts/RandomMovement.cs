@@ -10,13 +10,14 @@ public class RandomMovement : MonoBehaviour
     public float moveSpeed = 2f;
     public float moveDelay = 1f;
     public float radiusMultiplier = 1.5f;
-    public float repulsionRadius = 1f;  // new: the radius in which to check for other objects
-    public float repulsionForce = 2f;  // new: the strength of the repulsion force
+    public float repulsionRadius = 1f;
+    public float repulsionForce = 2f;
 
     private Vector3 originalDirection;
     private bool collided = false;
     private Vector3 shuffleCenter;
     private int movementType;
+    private Vector3 lastCollisionNormal;
 
     void Start()
     {
@@ -30,7 +31,10 @@ public class RandomMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // new: add repulsion logic
+        // Fix the Z-axis position
+        transform.position = new Vector3(transform.position.x, transform.position.y, 1);
+
+        // Add repulsion logic
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, repulsionRadius);
         Vector3 repulsionVector = Vector3.zero;
 
@@ -44,8 +48,6 @@ public class RandomMovement : MonoBehaviour
         }
 
         transform.position += repulsionVector * repulsionForce * Time.deltaTime;
-
-        transform.position = new Vector3(transform.position.x, transform.position.y, 1);
     }
 
     private IEnumerator StartMovementPatterns()
@@ -101,13 +103,15 @@ public class RandomMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collided = true;
+        lastCollisionNormal = collision.contacts[0].normal;  // Store the collision normal
         StartCoroutine(HandleCollision());
+        Debug.Log($"Collision detected with: {collision.gameObject.name}");
     }
 
     private IEnumerator HandleCollision()
     {
         yield return new WaitForSeconds(1f);
-        originalDirection = GetRandomDirection();
+        originalDirection = Vector3.Reflect(originalDirection, lastCollisionNormal);  // Reflect based on last collision
         collided = false;
     }
 
