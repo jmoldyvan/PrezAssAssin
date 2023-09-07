@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: -5124931353935224371}
   - component: {fileID: 7953887451263404512}
   - component: {fileID: -918927861886505019}
-  - component: {fileID: 1188720442997036645}
   - component: {fileID: 677715631281234768}
+  - component: {fileID: 4560195871540365855}
   m_Layer: 6
   m_Name: TinyMan
   m_TagString: TinyMan
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 443d05f2a4ae81a4297ac8ec762644c3, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,34 +116,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1188720442997036645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6821366564465171471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c10b1c2bf7984ed49b7c840c6439c52e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minX: 0
-  maxX: 30
-  minY: 0
-  maxY: 20
-  moveSpeed: 2
-  moveDelay: 1
-  radiusMultiplier: 1.5
 --- !u!114 &677715631281234768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +137,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d51954a118e9a44d825d8b0ee2b302b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4560195871540365855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6821366564465171471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10b1c2bf7984ed49b7c840c6439c52e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  moveDelay: 1
+  radiusMultiplier: 1.5
