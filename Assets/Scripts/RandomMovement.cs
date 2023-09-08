@@ -196,19 +196,23 @@ public class RandomMovement : MonoBehaviour
     public float moveSpeed = 2f;
     public float moveDelay = 1f;
     public float radiusMultiplier = 1.5f;
+    public float inactivityTime = 5f;  // Time in seconds to check for inactivity
 
     private Rigidbody2D rb;
     private Vector3 startPosition;
+    private Vector3 lastPosition;
     private Vector3 targetPosition;
     private bool isMoving = false;
     private bool collided = false;
-    private bool hasBounced = false; // New flag to prevent multiple bounces
+    private bool hasBounced = false;
+    private float timer = 0f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         startPosition = transform.position;
+        lastPosition = startPosition;
         StartCoroutine(StartMovementPatterns());
     }
 
@@ -229,11 +233,30 @@ public class RandomMovement : MonoBehaviour
             {
                 transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
+
+            // Reset the inactivity timer if the object has moved
+            if (transform.position != lastPosition)
+            {
+                timer = 0f;
+            }
         }
         else if (collided)
         {
             float step = moveSpeed * Time.fixedDeltaTime;
             rb.MovePosition(Vector3.MoveTowards(transform.position, startPosition, step));
+        }
+
+        // Update the last position
+        lastPosition = transform.position;
+
+        // Update the inactivity timer
+        timer += Time.fixedDeltaTime;
+        if (timer >= inactivityTime)
+        {
+            // Reset the object's movement
+            StopCoroutine(StartMovementPatterns());
+            StartCoroutine(StartMovementPatterns());
+            timer = 0f;
         }
     }
 
@@ -244,7 +267,7 @@ public class RandomMovement : MonoBehaviour
             if (collided)
             {
                 yield return new WaitUntil(() => !collided);
-                hasBounced = false;  // Reset the bounce flag when no longer collided
+                hasBounced = false;
             }
 
             moveSpeed = Random.Range(0.5f, 3f);
@@ -270,8 +293,7 @@ public class RandomMovement : MonoBehaviour
             rb.MovePosition(rb.position - collisionNormal * 0.1f);
 
             StartCoroutine(HandleCollision());
-
-            hasBounced = true;  // Set the flag to true after the first bounce
+            hasBounced = true;
         }
     }
 
