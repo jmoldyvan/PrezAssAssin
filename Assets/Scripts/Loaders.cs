@@ -14,10 +14,12 @@ public class Loaders : MonoBehaviour
     }
     public void SelectLevelSelectScreen()
     {
+        
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void BackToMainMenu()
     {
+        Debug.Log("coroutine go1");
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 1));
     }
     public void QuitGame()
@@ -29,6 +31,7 @@ public class Loaders : MonoBehaviour
     IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("Start");
+        Debug.Log("start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
     }
