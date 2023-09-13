@@ -1327,8 +1327,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 99174063}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 2071851722}
+        m_TargetAssemblyTypeName: Loaders, Assembly-CSharp
         m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
