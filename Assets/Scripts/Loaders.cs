@@ -14,7 +14,7 @@ public class Loaders : MonoBehaviour
     }
     public void SelectLevelSelectScreen()
     {
-        
+        Debug.Log("coroutine go1");
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void BackToMainMenu()
