@@ -28,7 +28,7 @@ public class Loaders : MonoBehaviour
         Application.Quit();
     }
 
-    IEnumerator LoadLevel(int levelIndex)
+    public IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("Start");
         Debug.Log("start");

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class LevelSelector : MonoBehaviour
 {
-    public void Select ()
+    public Loaders transition;
+    public void Select (int levelName)
     {
-        
+        transition.StartCoroutine(transition.LoadLevel(levelName));
     }
 
 
