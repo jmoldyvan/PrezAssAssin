@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
             if (hit.collider != null)
             {
                 Debug.Log("This object was clicked: " + hit.collider.gameObject.name);
-                hit.collider.gameObject.GetComponent<ClickEvent>().ObjectClicked();
+                hit.collider.gameObject.GetComponent<ClickEventsForShootingTargets>().ObjectClicked();
             }
             else
             {
@@ -106,28 +106,28 @@ public class GameManager : MonoBehaviour
     }
 
     // Function to spawn a single Prez object// Function to spawn a single Prez object
-void SpawnPrez(int width, int height)
-{
-    for (int i = 0; i < 1; i++)  // We only want to spawn one Prez
+    void SpawnPrez(int width, int height)
     {
-        Vector3Int randomTilePosition = new Vector3Int(
-            Random.Range(-15, width),
-            Random.Range(0, height),
-            0
-        );
+        for (int i = 0; i < 1; i++)  // We only want to spawn one Prez
+        {
+            Vector3Int randomTilePosition = new Vector3Int(
+                Random.Range(-15, width),
+                Random.Range(0, height),
+                0
+            );
 
-        if (floorTilemap.HasTile(randomTilePosition) && !wallTilemap.HasTile(randomTilePosition))
-        {
-            Vector3 spawnPosition = floorTilemap.GetCellCenterWorld(randomTilePosition);
-            Instantiate(Prez, spawnPosition, Quaternion.identity);
-            return;  // Exit the loop once the Prez is spawned
-        }
-        else
-        {
-            i--;  // Decrement i to try again
+            if (floorTilemap.HasTile(randomTilePosition) && !wallTilemap.HasTile(randomTilePosition))
+            {
+                Vector3 spawnPosition = floorTilemap.GetCellCenterWorld(randomTilePosition);
+                Instantiate(Prez, spawnPosition, Quaternion.identity);
+                return;  // Exit the loop once the Prez is spawned
+            }
+            else
+            {
+                i--;  // Decrement i to try again
+            }
         }
     }
-}
 
         public void LoseHeart(){
             Debug.Log("LoseHeart called in GameManager.");

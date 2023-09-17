@@ -22,6 +22,9 @@ public class RandomMovement : MonoBehaviour
     private Vector2 backupDirection;
     private float backupTime = 2f;
 
+    // Flag for pausing all movement
+    public bool isPaused = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,6 +36,10 @@ public class RandomMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+
+            if (isPaused)
+            return;
+
         if (isMoving && !collided && !inBackupMode)
         {
             float step = moveSpeed * Time.fixedDeltaTime;
@@ -127,5 +134,19 @@ public class RandomMovement : MonoBehaviour
         inBackupMode = false;
         StopCoroutine(StartMovementPatterns());
         StartCoroutine(StartMovementPatterns());
+    }
+
+    // Function to pause or resume movement
+    public void TogglePause(bool pause)
+    {
+        isPaused = pause;
+        if (pause)
+        {
+            StopCoroutine(StartMovementPatterns());
+        }
+        else
+        {
+            StartCoroutine(StartMovementPatterns());
+        }
     }
 }

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: -5124931353935224371}
   - component: {fileID: 7953887451263404512}
   - component: {fileID: -918927861886505019}
-  - component: {fileID: 677715631281234768}
   - component: {fileID: 6230837500207375516}
+  - component: {fileID: -3137290504514050350}
   m_Layer: 6
   m_Name: TinyMan
   m_TagString: TinyMan
@@ -125,18 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &677715631281234768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6821366564465171471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d51954a118e9a44d825d8b0ee2b302b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6230837500207375516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,3 +141,15 @@ MonoBehaviour:
   moveDelay: 1
   radiusMultiplier: 1.5
   inactivityTime: 5
+--- !u!114 &-3137290504514050350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6821366564465171471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d51954a118e9a44d825d8b0ee2b302b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
