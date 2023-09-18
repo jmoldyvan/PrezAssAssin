@@ -45,5 +45,9 @@ public class ClickEventsForShootingTargets : MonoBehaviour
 
         CameraController cameraPanToTarget = Camera.main.GetComponent<CameraController>();
         cameraPanToTarget.StartTransitionPanning(); 
+
+        GameObject gunTransition = GameObject.FindGameObjectWithTag("GunTransition");
+        Loaders playGunBarrelAnim = gunTransition.GetComponent<Loaders>();
+        playGunBarrelAnim.TransitionPhaseFunction();
     }
 }

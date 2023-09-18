@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class Loaders : MonoBehaviour
 {
     public Animator transition;
+    public Animator phaseTransition;
     public float transitionTime = 1f;
+    public float phaseTransitionTime = 3f;
 
     public void NewGame()
     {
@@ -31,8 +33,20 @@ public class Loaders : MonoBehaviour
     public IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("Start");
-        Debug.Log("start");
+
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
+    }
+    public IEnumerator TransitionPhase()
+    {
+        Debug.Log("TransitionPhase");                
+        yield return new WaitForSeconds(transitionTime);
+        phaseTransition.SetTrigger("PhaseTrigger");
+    }
+
+    public void TransitionPhaseFunction()
+    {
+        Debug.Log("TransitionPhase");
+        StartCoroutine(TransitionPhase());
     }
 }

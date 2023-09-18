@@ -9,6 +9,7 @@ TagManager:
   - floor-tileset
   - collision
   - Wall
+  - GunTransition
   layers:
   - Default
   - TransparentFX
