@@ -79,9 +79,14 @@ public class CameraController : MonoBehaviour
         isPlayerControlEnabled = false;
     }
 
-
     public void StopTransitionPanning()
     {
         shouldPan = false;
+    }
+
+    public void SetAfterGunTransitionSiza(float newSize)
+    {
+        StopTransitionPanning();
+        Camera.main.orthographicSize = newSize;
     }
 }
