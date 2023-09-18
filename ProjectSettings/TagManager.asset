@@ -10,6 +10,7 @@ TagManager:
   - collision
   - Wall
   - GunTransition
+  - ExitDoor
   layers:
   - Default
   - TransparentFX
