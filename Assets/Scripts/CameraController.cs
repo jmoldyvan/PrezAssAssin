@@ -62,8 +62,12 @@ public class CameraController : MonoBehaviour
         if (shouldPan)
         {
             Vector3 targetPosition = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
-
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * panSpeedOnTransition);
+
+            // Set the target camera size here. For example, I'm using 10.
+            float targetCameraSize = 6;
+
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetCameraSize, Time.deltaTime * panSpeedOnTransition);
         }
                 Debug.Log( target.name);
     }
