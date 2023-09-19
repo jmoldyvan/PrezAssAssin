@@ -1,30 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class DissolveOnAnim : StateMachineBehaviour
 {
-    public GameObject TinyMan;
+    // Rectangle coordinates
+    public float xMin = -8f;
+    public float xMax = 1f;
+    public float yMin = 8f;
+    public float yMax = 14.5f;
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("DissolveOnAnim: OnStateExit Called");
+        // Find and destroy objects within the rectangle
+        GameObject[] allTinyMen = GameObject.FindGameObjectsWithTag("TinyMan");
 
-        if(TinyMan == null) 
+        foreach (GameObject tinyMan in allTinyMen)
         {
-            Debug.LogWarning("TinyMan GameObject is not assigned!");
-            return;
+            Vector3 position = tinyMan.transform.position;
+
+            if (position.x >= xMin && position.x <= xMax && position.y >= yMin && position.y <= yMax)
+            {
+                Destroy(tinyMan);
+            }
         }
 
-        DissolveState dissolveScript = TinyMan.GetComponent<DissolveState>();
+        // Update the allTinyMen array after destroying the objects in the rectangle
+        allTinyMen = GameObject.FindGameObjectsWithTag("TinyMan");
 
-        if (dissolveScript == null) 
+        // Dissolve random objects
+        int numberOfObjectsToLeave = 20;
+
+        if (allTinyMen.Length > numberOfObjectsToLeave)
         {
-            Debug.LogWarning("No DissolveState script found on TinyMan!");
-            return;
-        }
+            int numberOfObjectsToDestroy = allTinyMen.Length - numberOfObjectsToLeave;
 
-        Debug.Log("DissolveOnAnim: Starting dissolve process");
-        dissolveScript.StartDissolve();
+            var objectsToDestroy = allTinyMen.OrderBy(x => Random.value).Take(numberOfObjectsToDestroy);
+
+            foreach (var tinyMan in objectsToDestroy)
+            {
+                DissolveState dissolveScript = tinyMan.GetComponent<DissolveState>();
+
+                if (dissolveScript != null)
+                {
+                    dissolveScript.StartDissolve();
+                }
+            }
+        }
     }
 }
