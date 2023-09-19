@@ -16,17 +16,17 @@ public class Loaders : MonoBehaviour
     }
     public void SelectLevelSelectScreen()
     {
-        Debug.Log("coroutine go1");
+        
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void BackToMainMenu()
     {
-        Debug.Log("coroutine go1");
+        
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 1));
     }
     public void QuitGame()
     {
-        Debug.Log("QUITE");
+        
         Application.Quit();
     }
 
@@ -39,14 +39,14 @@ public class Loaders : MonoBehaviour
     }
     public IEnumerator TransitionPhase()
     {
-        Debug.Log("TransitionPhase");                
+                      
         yield return new WaitForSeconds(transitionTime);
         phaseTransition.SetTrigger("PhaseTrigger");
     }
 
     public void TransitionPhaseFunction()
     {
-        Debug.Log("TransitionPhase");
+        
         StartCoroutine(TransitionPhase());
     }
 }

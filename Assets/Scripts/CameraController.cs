@@ -69,7 +69,7 @@ public class CameraController : MonoBehaviour
 
             Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetCameraSize, Time.deltaTime * panSpeedOnTransition);
         }
-                Debug.Log( target.name);
+            
     }
 
 

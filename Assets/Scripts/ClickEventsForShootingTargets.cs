@@ -5,16 +5,16 @@ public class ClickEventsForShootingTargets : MonoBehaviour
 
     public void ObjectClicked()
     {
-        Debug.Log("ObjectClicked called for " + gameObject.name);
+        
 
         if (gameObject.tag == "TinyMan")
         {
-            Debug.Log("Calling TriggerHeartAnimation for " + gameObject.name);
+            
             TriggerHeartAnimation();
         }
         else if (gameObject.tag == "Prez")
         {
-            Debug.Log("Calling StopGame for " + gameObject.name);
+            
             CickedOnPrez();
         }
     }
