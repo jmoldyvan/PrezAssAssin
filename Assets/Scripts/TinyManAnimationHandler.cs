@@ -1,42 +1,34 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TinyManAnimationHandler : MonoBehaviour
 {
-    public GameObject secretServicePrefab; // Drag your SecretService prefab here in the inspector.
+    public GameObject secretServicePrefab; // Assign this in Unity Editor
 
-    // List to store remaining TinyMan GameObjects.
-    private List<GameObject> remainingTinyMen;
-
-    // Method to start the TinyMan animations.
-    public void StartRemainingTinyManAnimations()
+    public void StartTinyManAnimations()
     {
-        remainingTinyMen = new List<GameObject>(GameObject.FindGameObjectsWithTag("TinyMan"));
-        
-        foreach (GameObject tinyMan in remainingTinyMen)
+        GameObject[] allTinyMen = GameObject.FindGameObjectsWithTag("TinyMan");
+        foreach(GameObject tinyMan in allTinyMen)
         {
-            Animator animator = tinyMan.GetComponent<Animator>();
-            if (animator != null)
+            Animator anim = tinyMan.GetComponent<Animator>();
+            if (anim != null)
             {
-                animator.SetTrigger("YourTinyManTrigger"); // Replace "YourTinyManTrigger" with the correct trigger name.
+                anim.SetTrigger("StartAnimation");
             }
         }
     }
 
-    // Method to be called when TinyMan animation is complete. This will instantiate SecretService.
-    public void OnTinyManAnimationComplete(GameObject tinyMan)
+public void OnTinyManAnimationComplete()
+{
+    Vector3 position = gameObject.transform.position;
+    Quaternion rotation = gameObject.transform.rotation;
+    GameObject secretService = Instantiate(secretServicePrefab, position, rotation);
+
+    Animator anim = secretService.GetComponent<Animator>();
+    if (anim != null)
     {
-        // Instantiate SecretService GameObject.
-        GameObject secretService = Instantiate(secretServicePrefab, tinyMan.transform.position, tinyMan.transform.rotation);
-
-        // Start the SecretService animation.
-        Animator ssAnimator = secretService.GetComponent<Animator>();
-        if (ssAnimator != null)
-        {
-            ssAnimator.SetTrigger("YourSecretServiceTrigger"); // Replace with the correct trigger name.
-        }
-
-        // Destroy the TinyMan GameObject.
-        Destroy(tinyMan);
+        anim.SetTrigger("StartAnimation");
     }
+
+    DestroyImmediate(gameObject);
+}
 }

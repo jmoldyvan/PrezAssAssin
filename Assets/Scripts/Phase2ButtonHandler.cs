@@ -1,18 +1,19 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Phase2ButtonHandler : MonoBehaviour
 {
-    public TinyManAnimationHandler tinyManHandler; // Reference to TinyManAnimationHandler script.
-
-    void Start()
+    public void OnPhase2ButtonPressed()
     {
-        Button btn = GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
-    }
+        Debug.Log("Phase 2 Button Pressed!");
+        GameObject[] allTinyMen = GameObject.FindGameObjectsWithTag("TinyMan");
 
-    void TaskOnClick()
-    {
-        tinyManHandler.StartRemainingTinyManAnimations(); // Start animations for remaining TinyMen.
+        foreach (var tinyMan in allTinyMen)
+        {
+            Animator anim = tinyMan.GetComponent<Animator>();
+            if (anim != null)
+            {
+                anim.SetTrigger("StartAnimation");
+            }
+        }
     }
 }

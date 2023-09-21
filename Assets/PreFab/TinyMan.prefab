@@ -1360,6 +1360,7 @@ GameObject:
   - component: {fileID: -3137290504514050350}
   - component: {fileID: 7505999480385540750}
   - component: {fileID: 8984563265191157678}
+  - component: {fileID: 861201727945125380}
   m_Layer: 6
   m_Name: TinyMan
   m_TagString: TinyMan
@@ -1549,13 +1550,27 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 96fbc67cd4d273e4db074e6ba63d5b8c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &861201727945125380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6821366564465171471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb189ab212e4374982c66c3b30213b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secretServicePrefab: {fileID: 6821366564465171471, guid: 02015095adacdf14b83aa415317868df, type: 3}
+  tinyManTag: TinyMan
 --- !u!1 &7932206910441188221
 GameObject:
   m_ObjectHideFlags: 0
