@@ -7,6 +7,7 @@ public class AfterGunBarrelToPhase2 : StateMachineBehaviour
 
     public GameObject ExitDoor1;
     public GameObject Player;
+    public GameObject Phase2Button;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
@@ -34,9 +35,11 @@ public class AfterGunBarrelToPhase2 : StateMachineBehaviour
     {
         Vector3 exitDoorPosition = new Vector3(72f, 21f, 0);
         Vector3 playerPosition = new Vector3(-3f, 12f, 0); 
+        Vector3 Phase2ButtonPosition = new Vector3(25f, 25f, -6); 
         Quaternion rotation = Quaternion.identity;
 
         GameObject createDoor = Instantiate(ExitDoor1, exitDoorPosition, rotation);
         GameObject createPlayer = Instantiate(Player, playerPosition, rotation);
+        GameObject createPhase2Button = Instantiate(Phase2Button, Phase2ButtonPosition, rotation);
     }
 }

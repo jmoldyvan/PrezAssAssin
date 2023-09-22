@@ -29,6 +29,6 @@ public void OnTinyManAnimationComplete()
         anim.SetTrigger("StartAnimation");
     }
 
-    DestroyImmediate(gameObject);
+    Destroy(gameObject);
 }
 }
