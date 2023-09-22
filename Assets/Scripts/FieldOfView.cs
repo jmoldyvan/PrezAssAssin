@@ -28,7 +28,7 @@ public class FieldOfView : MonoBehaviour {
 
 	void FindVisibleTargets() {
 		visibleTargets.Clear ();
-		Collider2D[] targetsInViewRadius = Physics2D.OverlapSphere (transform.position, viewRadius, targetMask);
+		Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll (transform.position, viewRadius, targetMask);
 
 		for (int i = 0; i < targetsInViewRadius.Length; i++) {
 			Transform target = targetsInViewRadius [i].transform;
@@ -48,6 +48,6 @@ public class FieldOfView : MonoBehaviour {
 		if (!angleIsGlobal) {
 			angleInDegrees -= transform.eulerAngles.z;
 		}
-		return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad),0,Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+		return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad),Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
 	}
 }

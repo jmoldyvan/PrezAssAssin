@@ -3,6 +3,7 @@ using UnityEngine;
 public class TinyManAnimationHandler : MonoBehaviour
 {
     public GameObject secretServicePrefab; // Assign this in Unity Editor
+    public Transform tinyManTransform;
 
     public void StartTinyManAnimations()
     {
@@ -19,8 +20,8 @@ public class TinyManAnimationHandler : MonoBehaviour
 
 public void OnTinyManAnimationComplete()
 {
-    Vector3 position = gameObject.transform.position;
-    Quaternion rotation = gameObject.transform.rotation;
+    Vector3 position = tinyManTransform.position;
+    Quaternion rotation = tinyManTransform.rotation;
     GameObject secretService = Instantiate(secretServicePrefab, position, rotation);
 
     Animator anim = secretService.GetComponent<Animator>();
