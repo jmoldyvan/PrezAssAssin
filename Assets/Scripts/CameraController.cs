@@ -28,7 +28,16 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        target = GameObject.FindGameObjectWithTag("Prez");
+        if (!target)
+        {
+            target = GameObject.FindGameObjectWithTag("Prez");
+        }
+
+        if (!target)  // If Prez is not found, then try to find Player
+        {
+            target = GameObject.FindGameObjectWithTag("Player");
+        }
+
 
         if (isPlayerControlEnabled){
         Vector3 pos = transform.position;
@@ -89,4 +98,14 @@ public class CameraController : MonoBehaviour
         StopTransitionPanning();
         Camera.main.orthographicSize = newSize;
     }
+
+    public void ZoomToTargetWithTag(string tag)
+{
+    GameObject target = GameObject.FindGameObjectWithTag(tag);
+    if (target)
+    {
+        this.target = target;
+        StartTransitionPanning();
+    }
+}
 }

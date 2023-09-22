@@ -17,10 +17,14 @@ public class AfterGunBarrelToPhase2 : StateMachineBehaviour
             GameObject image = parentTransform.Find("Image")?.gameObject;
             GameObject image1 = parentTransform.Find("Image (1)")?.gameObject;
             GameObject circle = parentTransform.Find("circle")?.gameObject;
+            GameObject Prez = GameObject.FindGameObjectWithTag("Prez");
+            
+
 
             if (image != null) Destroy(image);
             if (image1 != null) Destroy(image1);
             if (circle != null) Destroy(circle);
+            if (Prez != null) Destroy(Prez);
 
             CameraController cameraController = Camera.main.GetComponent<CameraController>();
             if (cameraController != null)
@@ -29,9 +33,11 @@ public class AfterGunBarrelToPhase2 : StateMachineBehaviour
                 cameraController.SetAfterGunTransitionSiza(24);
                 cameraController.transform.position = new Vector3(33, 23, Camera.main.transform.position.z);
             }
+
         }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    
     {
         Vector3 exitDoorPosition = new Vector3(72f, 21f, 0);
         Vector3 playerPosition = new Vector3(-3f, 12f, 0); 
