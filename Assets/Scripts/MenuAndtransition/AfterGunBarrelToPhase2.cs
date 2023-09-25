@@ -40,7 +40,7 @@ public class AfterGunBarrelToPhase2 : StateMachineBehaviour
     
     {
         Vector3 exitDoorPosition = new Vector3(72f, 21f, 0);
-        Vector3 playerPosition = new Vector3(-3f, 12f, 0); 
+        Vector3 playerPosition = new Vector3(-3f, 12f, 1.5f); 
         Vector3 Phase2ButtonPosition = new Vector3(25f, 25f, -6); 
         Quaternion rotation = Quaternion.identity;
 

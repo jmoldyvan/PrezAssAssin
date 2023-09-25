@@ -1420,9 +1420,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.09, y: -0.04}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.23
 --- !u!212 &7953887451263404512
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1569,7 +1569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb189ab212e4374982c66c3b30213b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secretServicePrefab: {fileID: 8170392039691125815, guid: 5ba14c2d648b5234babd94937d661cfc, type: 3}
+  secretServicePrefab: {fileID: 5167730550489032727, guid: 86fdff519ba13d64db60aa5c63538735, type: 3}
   tinyManTransform: {fileID: 7210486312751966911}
 --- !u!1 &7932206910441188221
 GameObject:
