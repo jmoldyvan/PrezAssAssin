@@ -42,7 +42,7 @@ void FixedUpdate()
     if (isPaused)
         return;
 
-    float angleToTarget = 0f;  // Declare angleToTarget at the top of the method to ensure its scope is throughout the method.
+    float angleToTarget = 0f;
 
     if (isMoving && !collided && !inBackupMode)
     {
@@ -74,10 +74,11 @@ void FixedUpdate()
     {
         // Use the last valid rotation when not moving
         angleToTarget = lastValidRotation.eulerAngles.z;
-    }
 
-    Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angleToTarget));
-    fieldOfView.transform.rotation = Quaternion.Lerp(fieldOfView.transform.rotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
+        // Moved this part inside the else block
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angleToTarget));
+        fieldOfView.transform.rotation = Quaternion.Lerp(fieldOfView.transform.rotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
+    }
 
     if (collided)
     {
@@ -88,7 +89,7 @@ void FixedUpdate()
     if (inBackupMode)
     {
         float step = moveSpeed * Time.fixedDeltaTime;
-        Vector3 newPosition = transform.position + (Vector3) Vector3.forward * step;  // Note: Changed backupDirection to Vector3.forward to match types
+        Vector3 newPosition = transform.position + (Vector3)backupDirection * step;
         rb.MovePosition(newPosition);
     }
 
