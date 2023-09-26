@@ -493,7 +493,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 644734700691643898, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 644734700691643898, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12689,7 +12689,7 @@ RectTransform:
   - {fileID: 816388676}
   - {fileID: 2134635481}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -34110,7 +34110,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1455885406819684510, guid: f63da0270dc6e8343aa76b0e4fb7bfbb, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1455885406819684510, guid: f63da0270dc6e8343aa76b0e4fb7bfbb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34381,7 +34381,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2134635480
 GameObject:
@@ -34517,6 +34517,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134635480}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
 --- !u!1001 &8170392040466588216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34606,3 +34607,5 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ba14c2d648b5234babd94937d661cfc, type: 3}
+=======
+>>>>>>> 201e65acb08fe16e641b412f4bee7c786c8ea90b

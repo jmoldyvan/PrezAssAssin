@@ -141,6 +141,8 @@ MonoBehaviour:
   moveDelay: 1
   radiusMultiplier: 1.5
   inactivityTime: 5
+  fovHolder: {fileID: 0}
+  spriteTransform: {fileID: 8683192899905030217}
   isPaused: 0
 --- !u!114 &2381147486113870747
 MonoBehaviour:
