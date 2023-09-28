@@ -5,155 +5,161 @@ public class RandomMovement1 : MonoBehaviour
 {
     public FieldOfView fieldOfView;  
     public float rotationSpeed = 5f;
-    
-    public float moveSpeed = 2f;
-    public float moveDelay = 1f;
     public float radiusMultiplier = 1.5f;
     public float inactivityTime = 5f;
+    public float backupTime = 2f;
 
     private Rigidbody2D rb;
     private Vector3 startPosition;
-    private Vector3 lastPosition;
     private Vector3 targetPosition;
-    private bool isMoving = false;
-    private bool collided = false;
-    private bool hasBounced = false;
-    private float timer = 0f;
-
-    private bool inBackupMode = false;
-    private Vector2 backupDirection;
-    private float backupTime = 2f;
     private Quaternion lastValidRotation;
-    public bool isPaused = false;
+    private float timer = 0f;
+    private bool isPaused = false;
+    private bool collided = false;
+    private Vector2 backupDirection;
+    private float moveSpeed;
+    private float moveDelay;
+
+    private enum State
+    {
+        Moving,
+        BackingUp,
+        HandlingCollision,
+        Waiting,
+        Paused
+    }
+
+    private State currentState;
 
     void Start()
     {
         fieldOfView = GetComponentInChildren<FieldOfView>();
-
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         startPosition = transform.position;
-        lastPosition = startPosition;
-        StartCoroutine(StartMovementPatterns());
+        SetRandomTarget();
+        currentState = State.Moving;
+        float initialDelay = Random.Range(0f, 3f);  // Random initial delay between 0 to 3 seconds
+        StartCoroutine(StartMovingAfterDelay(initialDelay));
+        inactivityTime = Random.Range(1f, 5f);  // Random inactivity time between 2 to 10 seconds
     }
 
-void FixedUpdate()
-{
-    if (isPaused)
-        return;
+    IEnumerator StartMovingAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        currentState = State.Moving;
+    }
 
-    float angleToTarget = 0f;
+    void FixedUpdate()
+    {
+        if (isPaused)
+        {
+            currentState = State.Paused;
+        }
 
-    if (isMoving && !collided && !inBackupMode)
+        switch (currentState)
+        {
+            case State.Moving:
+                MoveToTarget();
+                break;
+            
+            case State.BackingUp:
+                Backup();
+                break;
+
+            case State.HandlingCollision:
+                ResolveCollision();
+                break;
+
+            case State.Waiting:
+                // Do nothing, or handle any logic while waiting
+                break;
+
+            case State.Paused:
+                // Stop any ongoing coroutines or other actions
+                break;
+        }
+
+        // UpdateRotationTowardsTarget();
+        timer += Time.fixedDeltaTime;
+        CheckInactivity();
+        UpdateSpriteFlip();
+    }
+
+    void MoveToTarget()
     {
         float step = moveSpeed * Time.fixedDeltaTime;
         Vector3 newPosition = Vector3.MoveTowards(transform.position, targetPosition, step);
         rb.MovePosition(newPosition);
-
-        angleToTarget = Mathf.Atan2(targetPosition.y - transform.position.y, targetPosition.x - transform.position.x) * Mathf.Rad2Deg;
-        Quaternion rotationToTarget = Quaternion.Euler(new Vector3(0, 0, angleToTarget));
-        fieldOfView.transform.rotation = Quaternion.Lerp(fieldOfView.transform.rotation, rotationToTarget, Time.fixedDeltaTime * rotationSpeed);
-
-        lastValidRotation = rotationToTarget;
-
-        if (newPosition.x > transform.position.x)
-        {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-        }
-        else if (newPosition.x < transform.position.x)
-        {
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-        }
-
-        if (transform.position != lastPosition)
-        {
-            timer = 0f;
-        }
-    }
-    else
-    {
-        // Use the last valid rotation when not moving
-        angleToTarget = lastValidRotation.eulerAngles.z;
-
-        // Moved this part inside the else block
-        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angleToTarget));
-        fieldOfView.transform.rotation = Quaternion.Lerp(fieldOfView.transform.rotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
     }
 
-    if (collided)
-    {
-        float step = moveSpeed * Time.fixedDeltaTime;
-        rb.MovePosition(Vector3.MoveTowards(transform.position, startPosition, step));
-    }
-    
-    if (inBackupMode)
+    void Backup()
     {
         float step = moveSpeed * Time.fixedDeltaTime;
         Vector3 newPosition = transform.position + (Vector3)backupDirection * step;
         rb.MovePosition(newPosition);
     }
 
-    lastPosition = transform.position;
-    timer += Time.fixedDeltaTime;
-
-    if (timer >= inactivityTime)
+    void ResolveCollision()
     {
-        timer = 0f;
-        inBackupMode = true;
-        backupDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-        StartCoroutine(BackupManeuver());
+        float step = moveSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(Vector3.MoveTowards(transform.position, startPosition, step));
     }
-}
 
-    private IEnumerator StartMovementPatterns()
+    IEnumerator RotateTowardsTargetCoroutine()
     {
-        while (true)
+        float angleToTarget = Mathf.Atan2(targetPosition.y - transform.position.y, targetPosition.x - transform.position.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angleToTarget));
+        float elapsedTime = .5f;
+        float rotationDuration = 4f;  // Duration over which to perform the rotation - you can adjust this value
+
+        while (elapsedTime < rotationDuration)
         {
-            if (collided)
-            {
-                yield return new WaitUntil(() => !collided);
-                hasBounced = false;
-            }
-
-            moveSpeed = Random.Range(0.5f, 3f);
-            moveDelay = Random.Range(0.5f, 2f);
-
-            startPosition = transform.position;
-            targetPosition = startPosition + new Vector3(Random.Range(-radiusMultiplier, radiusMultiplier), Random.Range(-radiusMultiplier, radiusMultiplier), 0);
-            isMoving = true;
-
-            yield return new WaitForSeconds(moveDelay);
+            fieldOfView.transform.rotation = Quaternion.Lerp(fieldOfView.transform.rotation, targetRotation, elapsedTime/rotationDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
+
+        fieldOfView.transform.rotation = targetRotation;  // Ensure the final rotation is exactly as desired
+    }
+
+    void CheckInactivity()
+    {
+        if (timer >= inactivityTime)
+        {
+            timer = 0f;
+            currentState = State.BackingUp;
+            backupDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+            StartCoroutine(BackupManeuver());
+        }
+    }
+
+    void SetRandomTarget()
+    {
+        targetPosition = startPosition + new Vector3(Random.Range(-radiusMultiplier, radiusMultiplier), Random.Range(-radiusMultiplier, radiusMultiplier), 0);
+        moveSpeed = Random.Range(0.5f, 5f);
+        moveDelay = Random.Range(0.1f, 5f);
+        
+        StopCoroutine("RotateTowardsTargetCoroutine");  // Stop any existing rotation coroutine
+        StartCoroutine(RotateTowardsTargetCoroutine());  // Start a new rotation coroutine
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall") && !hasBounced)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
             collided = true;
-            isMoving = false;
-
+            currentState = State.HandlingCollision;
             Vector2 collisionNormal = collision.GetContact(0).normal;
             rb.MovePosition(rb.position - collisionNormal * 0.1f);
-
-            StartCoroutine(HandleCollision());
-            hasBounced = true;
         }
-    }
-
-    private IEnumerator HandleCollision()
-    {
-        yield return new WaitUntil(() => Vector3.Distance(transform.position, startPosition) < 0.1f);
-        collided = false;
-        isMoving = true;
     }
 
     private IEnumerator BackupManeuver()
     {
         yield return new WaitForSeconds(backupTime);
-        inBackupMode = false;
-        StopCoroutine(StartMovementPatterns());
-        StartCoroutine(StartMovementPatterns());
+        currentState = State.Moving;
+        SetRandomTarget();  // This will also set new random values for moveSpeed and moveDelay
     }
 
     public void TogglePause(bool pause)
@@ -161,11 +167,34 @@ void FixedUpdate()
         isPaused = pause;
         if (pause)
         {
-            StopCoroutine(StartMovementPatterns());
+            currentState = State.Paused;
         }
         else
         {
-            StartCoroutine(StartMovementPatterns());
+            currentState = State.Moving;
+            SetRandomTarget();  // This will also set new random values for moveSpeed and moveDelay
         }
     }
+
+    void UpdateSpriteFlip()
+{
+    Transform secretServiceTransform = transform.Find("SecretService");
+    if (secretServiceTransform != null)
+    {
+        SpriteRenderer spriteRenderer = secretServiceTransform.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            float angle = fieldOfView.transform.eulerAngles.z;
+            spriteRenderer.flipX = (angle > 90 && angle < 270);
+        }
+        else
+        {
+            Debug.LogError("No SpriteRenderer found on SecretService");
+        }
+    }
+    else
+    {
+        Debug.LogError("No SecretService child found");
+    }
+}
 }

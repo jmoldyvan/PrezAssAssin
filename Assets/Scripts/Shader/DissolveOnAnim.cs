@@ -30,7 +30,7 @@ public class DissolveOnAnim : StateMachineBehaviour
         allTinyMen = GameObject.FindGameObjectsWithTag("TinyMan");
 
         // Dissolve random objects
-        int numberOfObjectsToLeave = 20;
+        int numberOfObjectsToLeave = 30;
 
         if (allTinyMen.Length > numberOfObjectsToLeave)
         {
