@@ -137,8 +137,8 @@ public class RandomMovement1 : MonoBehaviour
     void SetRandomTarget()
     {
         targetPosition = startPosition + new Vector3(Random.Range(-radiusMultiplier, radiusMultiplier), Random.Range(-radiusMultiplier, radiusMultiplier), 0);
-        moveSpeed = Random.Range(0.5f, 5f);
-        moveDelay = Random.Range(0.1f, 5f);
+        moveSpeed = Random.Range(0.5f, 3.5f);
+        moveDelay = Random.Range(1f, 5f);
         
         StopCoroutine("RotateTowardsTargetCoroutine");  // Stop any existing rotation coroutine
         StartCoroutine(RotateTowardsTargetCoroutine());  // Start a new rotation coroutine
