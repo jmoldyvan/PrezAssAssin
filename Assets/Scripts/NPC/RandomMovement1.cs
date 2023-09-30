@@ -4,9 +4,9 @@ using UnityEngine;
 public class RandomMovement1 : MonoBehaviour
 {
     public FieldOfView fieldOfView;  
-    public float rotationSpeed = 5f;
+    public float rotationSpeed = 1f;
     public float radiusMultiplier = 1.5f;
-    public float inactivityTime = 5f;
+    public float inactivityTime = 6f;
     public float backupTime = 2f;
 
     private Rigidbody2D rb;
@@ -19,6 +19,9 @@ public class RandomMovement1 : MonoBehaviour
     private Vector2 backupDirection;
     private float moveSpeed;
     private float moveDelay;
+
+    private Transform currentTarget;
+    private bool isFollowingTarget = false;
 
     private enum State
     {
@@ -41,7 +44,8 @@ public class RandomMovement1 : MonoBehaviour
         currentState = State.Moving;
         float initialDelay = Random.Range(0f, 3f);  // Random initial delay between 0 to 3 seconds
         StartCoroutine(StartMovingAfterDelay(initialDelay));
-        inactivityTime = Random.Range(1f, 5f);  // Random inactivity time between 2 to 10 seconds
+        inactivityTime = Random.Range(4f, 8f);  // Random inactivity time between 2 to 10 seconds
+        rotationSpeed = Random.Range(1f, 8f);  // Random inactivity time between 2 to 10 seconds
     }
 
     IEnumerator StartMovingAfterDelay(float delay)
@@ -110,8 +114,8 @@ public class RandomMovement1 : MonoBehaviour
     {
         float angleToTarget = Mathf.Atan2(targetPosition.y - transform.position.y, targetPosition.x - transform.position.x) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angleToTarget));
-        float elapsedTime = .5f;
-        float rotationDuration = 4f;  // Duration over which to perform the rotation - you can adjust this value
+        float elapsedTime = -1f; // don't put this higher than 0
+        float rotationDuration = 6f;  // Duration over which to perform the rotation - you can adjust this value
 
         while (elapsedTime < rotationDuration)
         {
@@ -137,8 +141,8 @@ public class RandomMovement1 : MonoBehaviour
     void SetRandomTarget()
     {
         targetPosition = startPosition + new Vector3(Random.Range(-radiusMultiplier, radiusMultiplier), Random.Range(-radiusMultiplier, radiusMultiplier), 0);
-        moveSpeed = Random.Range(0.5f, 3.5f);
-        moveDelay = Random.Range(1f, 5f);
+        moveSpeed = Random.Range(0.5f, 3f);
+        moveDelay = Random.Range(3f, 6f);
         
         StopCoroutine("RotateTowardsTargetCoroutine");  // Stop any existing rotation coroutine
         StartCoroutine(RotateTowardsTargetCoroutine());  // Start a new rotation coroutine
@@ -177,24 +181,38 @@ public class RandomMovement1 : MonoBehaviour
     }
 
     void UpdateSpriteFlip()
-{
-    Transform secretServiceTransform = transform.Find("SecretService");
-    if (secretServiceTransform != null)
     {
-        SpriteRenderer spriteRenderer = secretServiceTransform.GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        Transform secretServiceTransform = transform.Find("SecretService");
+        if (secretServiceTransform != null)
         {
-            float angle = fieldOfView.transform.eulerAngles.z;
-            spriteRenderer.flipX = (angle > 90 && angle < 270);
+            SpriteRenderer spriteRenderer = secretServiceTransform.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                float angle = fieldOfView.transform.eulerAngles.z;
+                spriteRenderer.flipX = (angle > 90 && angle < 270);
+            }
+            else
+            {
+                Debug.LogError("No SpriteRenderer found on SecretService");
+            }
         }
         else
         {
-            Debug.LogError("No SpriteRenderer found on SecretService");
+            Debug.LogError("No SecretService child found");
         }
     }
-    else
+    
+    public void OnTargetDetected(Transform target)
     {
-        Debug.LogError("No SecretService child found");
+        currentTarget = target;
+        isFollowingTarget = true;
+        // Handle other logic on target detection
     }
-}
+
+    public void OnTargetLost()
+    {
+        currentTarget = null;
+        isFollowingTarget = false;
+        // Handle other logic on target loss
+    }
 }
