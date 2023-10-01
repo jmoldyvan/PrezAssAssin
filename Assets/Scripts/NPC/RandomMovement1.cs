@@ -22,6 +22,7 @@ public class RandomMovement1 : MonoBehaviour
 
     private Transform currentTarget;
     private bool isFollowingTarget = false;
+    private Transform visibleTarget;
 
     private enum State
     {
@@ -29,7 +30,8 @@ public class RandomMovement1 : MonoBehaviour
         BackingUp,
         HandlingCollision,
         Waiting,
-        Paused
+        Paused,
+        Tracking
     }
 
     private State currentState;
@@ -61,29 +63,44 @@ public class RandomMovement1 : MonoBehaviour
             currentState = State.Paused;
         }
 
-        switch (currentState)
+        if (fieldOfView.visibleTargets.Count > 0)
         {
-            case State.Moving:
-                MoveToTarget();
-                break;
-            
-            case State.BackingUp:
-                Backup();
-                break;
-
-            case State.HandlingCollision:
-                ResolveCollision();
-                break;
-
-            case State.Waiting:
-                // Do nothing, or handle any logic while waiting
-                break;
-
-            case State.Paused:
-                // Stop any ongoing coroutines or other actions
-                break;
+            visibleTarget  = fieldOfView.visibleTargets[0];
+            Debug.LogError(fieldOfView.visibleTargets);
+            MoveToVisibleTarget(visibleTarget);
         }
 
+        else{
+            switch (currentState)
+            {
+                case State.Moving:
+                    MoveToTarget();
+                    break;
+
+                // case State.Tracking:
+                //     if (visibleTarget != null)
+                //     {
+                //         MoveToVisibleTarget(visibleTarget);
+                //     }
+                //     break;
+                
+                case State.BackingUp:
+                    Backup();
+                    break;
+
+                case State.HandlingCollision:
+                    ResolveCollision();
+                    break;
+
+                case State.Waiting:
+                    // Do nothing, or handle any logic while waiting
+                    break;
+
+                case State.Paused:
+                    // Stop any ongoing coroutines or other actions
+                    break;
+            }            
+        }
         // UpdateRotationTowardsTarget();
         timer += Time.fixedDeltaTime;
         CheckInactivity();
@@ -96,7 +113,12 @@ public class RandomMovement1 : MonoBehaviour
         Vector3 newPosition = Vector3.MoveTowards(transform.position, targetPosition, step);
         rb.MovePosition(newPosition);
     }
-
+    void MoveToVisibleTarget(Transform target)
+    {
+        float step = moveSpeed * Time.fixedDeltaTime;
+        Vector3 newPosition = Vector3.MoveTowards(transform.position, target.position, step);
+        rb.MovePosition(newPosition);
+    }
     void Backup()
     {
         float step = moveSpeed * Time.fixedDeltaTime;
@@ -202,17 +224,17 @@ public class RandomMovement1 : MonoBehaviour
         }
     }
     
-    public void OnTargetDetected(Transform target)
-    {
-        currentTarget = target;
-        isFollowingTarget = true;
-        // Handle other logic on target detection
-    }
+    // public void OnTargetDetected(Transform target)
+    // {
+    //     currentTarget = target;
+    //     isFollowingTarget = true;
+    //     // Handle other logic on target detection
+    // }
 
-    public void OnTargetLost()
-    {
-        currentTarget = null;
-        isFollowingTarget = false;
-        // Handle other logic on target loss
-    }
+    // public void OnTargetLost()
+    // {
+    //     currentTarget = null;
+    //     isFollowingTarget = false;
+    //     // Handle other logic on target loss
+    // }
 }

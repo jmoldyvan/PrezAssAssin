@@ -57,7 +57,7 @@ public class FieldOfView : MonoBehaviour
         {
             Transform target = targetsInViewRadius[i].transform;
             Vector2 dirToTarget = (target.position - transform.position).normalized;
-            if (Vector2.Angle(transform.up, dirToTarget) < viewAngle / 2)
+            if (Vector2.Angle(transform.right, dirToTarget) < viewAngle / 2)
             {
                 float dstToTarget = Vector2.Distance(transform.position, target.position);
                 if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
@@ -65,16 +65,13 @@ public class FieldOfView : MonoBehaviour
                     visibleTargets.Add(target);
                 }
             }
+                    Debug.DrawRay(transform.position, dirToTarget * viewRadius, Color.red);
         }
-        if (visibleTargets.Count > 0)
+
+        Debug.Log($"Number of visible targets: {visibleTargets.Count}");
+        foreach (Transform target in visibleTargets)
         {
-            currentTarget = visibleTargets[0];  // Assuming the first visible target is the one to follow
-            targetDetectable?.OnTargetDetected(currentTarget);
-        }
-        else if (currentTarget != null)
-        {
-            currentTarget = null;
-            targetDetectable?.OnTargetLost();
+            Debug.Log($"Visible target: {target.name}");
         }
     }
 
