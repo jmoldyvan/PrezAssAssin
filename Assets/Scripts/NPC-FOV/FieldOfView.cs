@@ -65,14 +65,8 @@ public class FieldOfView : MonoBehaviour
                     visibleTargets.Add(target);
                 }
             }
-                    Debug.DrawRay(transform.position, dirToTarget * viewRadius, Color.red);
         }
 
-        Debug.Log($"Number of visible targets: {visibleTargets.Count}");
-        foreach (Transform target in visibleTargets)
-        {
-            Debug.Log($"Visible target: {target.name}");
-        }
     }
 
     void DrawFieldOfView()
@@ -181,7 +175,7 @@ public class FieldOfView : MonoBehaviour
         {
             angleInDegrees += transform.eulerAngles.z;  // adding 90 to offset the rotation
         }
-        return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+        return new Vector2(Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), Mathf.Sin(angleInDegrees * Mathf.Deg2Rad));
     }
 
     public struct ViewCastInfo

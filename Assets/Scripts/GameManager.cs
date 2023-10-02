@@ -140,7 +140,30 @@ public class GameManager : MonoBehaviour
                 fullHeart.sprite = Resources.Load<Sprite>("Images/Hearts/EmptyHeart");
             } else {
                 Debug.Log("No full heart found.");
+                GameOver();
             }
         }
 
+    public void GameOver()
+    {
+        GameObject[] EnemySecretServiceObjects = GameObject.FindGameObjectsWithTag("TinyMan");
+        Debug.LogError("got tin man");
+
+        foreach (GameObject EnemySecretServiceObject in EnemySecretServiceObjects)
+        {
+            // Get the RandomMovement1 script component from the GameObject
+            RandomMovement1 randomMovementScript = EnemySecretServiceObject.GetComponent<RandomMovement1>();
+
+            // If the RandomMovement1 script was found
+            if(randomMovementScript != null)
+            {
+                // Call the TogglePause function, passing true to pause the object's movement
+                randomMovementScript.TogglePause(true);
+            }
+            else
+            {
+                Debug.LogError("RandomMovement1 script not found on GameObject with tag RandomMover.");
+            }
+        }
+    }
 }

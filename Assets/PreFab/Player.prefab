@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8179586444396935255}
   - component: {fileID: 2194015221871829265}
   - component: {fileID: -7076429497185510579}
+  - component: {fileID: -9107515742237796458}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -30,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4857556211938758036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 67.13638, y: 6.0124416, z: 1.6}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalPosition: {x: 67.13638, y: 6.0124416, z: 1.9}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4918,4 +4919,19 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.53
+  m_Radius: 0.56
+--- !u!114 &-9107515742237796458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857556211938758036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bfbb7fae789c34488bb8f92c751068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hearts: []
+  EnemySecretService: {fileID: 5167730550489032727, guid: 86fdff519ba13d64db60aa5c63538735, type: 3}
+  gameManager: {fileID: 0}

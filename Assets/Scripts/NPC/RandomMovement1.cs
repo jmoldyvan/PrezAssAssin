@@ -66,7 +66,6 @@ public class RandomMovement1 : MonoBehaviour
         if (fieldOfView.visibleTargets.Count > 0)
         {
             visibleTarget  = fieldOfView.visibleTargets[0];
-            Debug.LogError(fieldOfView.visibleTargets);
             MoveToVisibleTarget(visibleTarget);
         }
 
