@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public TilemapCollider2D tilemapCollider;
     public Tilemap floorTilemap;
     public Tilemap wallTilemap;
+    private int lostHeartsCount = 0;
 
     private void Awake()
     {
@@ -129,19 +130,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-        public void LoseHeart(){
-            Debug.Log("LoseHeart called in GameManager.");
+    public void LoseHeart(){
+        Debug.Log("LoseHeart called in GameManager.");
 
-            var fullHeart = Hearts.FirstOrDefault(x => x.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("Default"));
-            
-            if (fullHeart != null) {
-                Debug.Log("Full heart found.");
-                fullHeart.gameObject.GetComponent<Animator>().Play("Flickering");
-                fullHeart.sprite = Resources.Load<Sprite>("Images/Hearts/EmptyHeart");
-            } else {
-                Debug.Log("No full heart found.");
+        var fullHeart = Hearts.FirstOrDefault(x => x.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("Default"));
+        
+        if (fullHeart != null) {
+            Debug.Log("Full heart found.");
+            fullHeart.gameObject.GetComponent<Animator>().Play("Flickering");
+            fullHeart.sprite = Resources.Load<Sprite>("Images/Hearts/EmptyHeart");
+
+            lostHeartsCount++; // Increment the lost hearts count
+
+            if (lostHeartsCount == 3) { // Check if lost hearts count is 3
                 GameOver();
             }
+        }
         }
 
     public void GameOver()

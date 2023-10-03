@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - GunTransition
   - ExitDoor
+  - PlayerVision
   layers:
   - Default
   - TransparentFX

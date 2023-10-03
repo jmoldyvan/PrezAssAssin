@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4857556211938758036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 67.13638, y: 6.0124416, z: 1.9}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4932,6 +4932,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59bfbb7fae789c34488bb8f92c751068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hearts: []
   EnemySecretService: {fileID: 5167730550489032727, guid: 86fdff519ba13d64db60aa5c63538735, type: 3}
   gameManager: {fileID: 0}
