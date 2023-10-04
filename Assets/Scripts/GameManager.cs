@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Tilemap floorTilemap;
     public Tilemap wallTilemap;
     private int lostHeartsCount = 0;
+    private PlayerDeath playerDeathScript;
 
     private void Awake()
     {
@@ -151,7 +152,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         GameObject[] EnemySecretServiceObjects = GameObject.FindGameObjectsWithTag("TinyMan");
-        Debug.LogError("got tin man");
 
         foreach (GameObject EnemySecretServiceObject in EnemySecretServiceObjects)
         {
@@ -163,11 +163,36 @@ public class GameManager : MonoBehaviour
             {
                 // Call the TogglePause function, passing true to pause the object's movement
                 randomMovementScript.TogglePause(true);
-            }
-            else
-            {
-                Debug.LogError("RandomMovement1 script not found on GameObject with tag RandomMover.");
+                randomMovementScript.allowTracking = false;
             }
         }
+        
+        // GameOverToPlayerDeathAnim();
+        GameObject PlayerObject = GameObject.FindGameObjectWithTag("Player");
+        playerDeathScript = PlayerObject.GetComponent<Animator>().Play("PlayerDeath");
+        playerDeathScript.PlayerDeathFunction();   
     }
+
+    public void GameOverToPlayerDeathAnim()
+    {
+        GameObject PlayerObject = GameObject.FindGameObjectWithTag("Player");
+        playerDeathScript = PlayerObject.GetComponent<PlayerDeath>();
+        playerDeathScript.PlayerDeathFunction();        
+    }
+
+    // public void ZoomOutToViewWholeLevel()
+    // {
+    //     CameraController cameraController = Camera.main.GetComponent<CameraController>();
+    //     if (cameraController != null)
+    //     {
+    //         cameraController.isPlayerControlEnabled = false;
+    //         cameraController.SetAfterGunTransitionSiza(24);
+    //         cameraController.transform.position = new Vector3(33, 23, Camera.main.transform.position.z);
+    //     }        
+
+    // }
+
+        // maybe play animation of player dying/ destroy player object/ StartTransitionPanning() camera 
+        // instantiate try again button
+        // instantiate main menu button
 }

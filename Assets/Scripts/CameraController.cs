@@ -37,6 +37,10 @@ public class CameraController : MonoBehaviour
         {
             target = GameObject.FindGameObjectWithTag("Player");
         }
+        if (!target)  // If Prez is not found, then try to find Player
+        {
+            target = null;
+        }
 
 
         if (isPlayerControlEnabled){

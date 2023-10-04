@@ -26,13 +26,8 @@ public class AfterGunBarrelToPhase2 : StateMachineBehaviour
             if (circle != null) Destroy(circle);
             if (Prez != null) Destroy(Prez);
 
-            CameraController cameraController = Camera.main.GetComponent<CameraController>();
-            if (cameraController != null)
-            {
-                cameraController.isPlayerControlEnabled = false;
-                cameraController.SetAfterGunTransitionSiza(24);
-                cameraController.transform.position = new Vector3(33, 23, Camera.main.transform.position.z);
-            }
+            SetCameraToMiddleOfLevel();
+
 
         }
 
@@ -47,5 +42,13 @@ public class AfterGunBarrelToPhase2 : StateMachineBehaviour
         GameObject createDoor = Instantiate(ExitDoor1, exitDoorPosition, rotation);
         GameObject createPlayer = Instantiate(Player, playerPosition, rotation);
         GameObject createPhase2Button = Instantiate(Phase2Button, Phase2ButtonPosition, rotation);
+    }
+
+    public void SetCameraToMiddleOfLevel()
+    {            
+        CameraController cameraController = Camera.main.GetComponent<CameraController>();
+        cameraController.isPlayerControlEnabled = false;
+        cameraController.SetAfterGunTransitionSiza(24);
+        cameraController.transform.position = new Vector3(33, 23, Camera.main.transform.position.z);
     }
 }
