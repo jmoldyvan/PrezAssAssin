@@ -7,7 +7,6 @@ using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.Tilemaps;
 
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
