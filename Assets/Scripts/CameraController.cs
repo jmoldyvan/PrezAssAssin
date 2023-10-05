@@ -14,7 +14,8 @@ public class CameraController : MonoBehaviour
     public float panSpeedOnTransition = .5f;
     private GameObject target;
     private bool shouldPan = false;
-
+    private bool isMoving = false;  // Flag to check if the camera should be moving
+    private Vector3 targetPosition; 
     public bool isPlayerControlEnabled = true;
 
     void Start()
@@ -82,10 +83,14 @@ public class CameraController : MonoBehaviour
 
             Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetCameraSize, Time.deltaTime * panSpeedOnTransition);
         }
-            
+
     }
 
-
+        public void MoveToTarget(Vector3 newTargetPosition) 
+        {
+            targetPosition = newTargetPosition;
+            isMoving = true;  // Set the movement flag to true
+        }
     public void StartTransitionPanning()
     {
         shouldPan = true;
