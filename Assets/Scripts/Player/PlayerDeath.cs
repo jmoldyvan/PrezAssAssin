@@ -26,4 +26,18 @@ public class PlayerDeath : MonoBehaviour
             Debug.LogError("Player object not found.");
         }
     }
+
+       public void ZoomOutToViewWholeLevel()
+    {
+        CameraController cameraController = Camera.main.GetComponent<CameraController>();
+        if (cameraController != null)
+        {
+            GameObject PlayerObject = GameObject.FindGameObjectWithTag("Player");
+            Destroy(PlayerObject);
+            cameraController.isPlayerControlEnabled = false;
+            cameraController.StartTransitionPanning();
+            cameraController.MoveToTarget(new Vector3(33, 23, Camera.main.transform.position.z));
+        }        
+
+    }
 }

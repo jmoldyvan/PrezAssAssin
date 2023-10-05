@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
         
         // GameOverToPlayerDeathAnim();
         GameObject PlayerObject = GameObject.FindGameObjectWithTag("Player");
-        playerDeathScript = PlayerObject.GetComponent<Animator>().Play("PlayerDeath");
+        PlayerObject.GetComponent<Animator>().Play("PlayerDeath");
         playerDeathScript.PlayerDeathFunction();   
     }
 
