@@ -3,7 +3,7 @@ using UnityEngine;
 public class SecretServiceHandler : MonoBehaviour
 {
     public Animator animator; // Attach the Animator component in the inspector.
-
+    public GameObject PlayerVision;
     public CameraController cameraController;
 
     void Start()
@@ -28,6 +28,18 @@ public class SecretServiceHandler : MonoBehaviour
         if (cameraController)
         {
             cameraController.ZoomToTargetWithTag("Player");
+            GameObject canvasGO = GameObject.Find("UI Canvas");
+            
+            // if (canvasGO)
+            // {
+            //     Transform playerVisionTransform = canvasGO.transform.Find("PlayerVision"); // This finds by name, not tag
+
+            //     // If the child GameObject with tag "PlayerVision" is found
+            //     if (playerVisionTransform)
+            //     {
+            //         playerVisionTransform.gameObject.SetActive(true);
+            //     }
+            // }
         }
     }
 }

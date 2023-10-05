@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public TilemapCollider2D tilemapCollider;
     public Tilemap floorTilemap;
     public Tilemap wallTilemap;
+    private int lostHeartsCount = 0;
+    private PlayerDeath playerDeathScript;
 
     private void Awake()
     {
@@ -129,25 +131,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-        public void LoseHeart(){
-            Debug.Log("LoseHeart called in GameManager.");
+    public void LoseHeart(){
+        Debug.Log("LoseHeart called in GameManager.");
 
-            var fullHeart = Hearts.FirstOrDefault(x => x.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("Default"));
-            
-            if (fullHeart != null) {
-                Debug.Log("Full heart found.");
-                fullHeart.gameObject.GetComponent<Animator>().Play("Flickering");
-                fullHeart.sprite = Resources.Load<Sprite>("Images/Hearts/EmptyHeart");
-            } else {
-                Debug.Log("No full heart found.");
+        var fullHeart = Hearts.FirstOrDefault(x => x.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("Default"));
+        
+        if (fullHeart != null) {
+            Debug.Log("Full heart found.");
+            fullHeart.gameObject.GetComponent<Animator>().Play("Flickering");
+            fullHeart.sprite = Resources.Load<Sprite>("Images/Hearts/EmptyHeart");
+
+            lostHeartsCount++; // Increment the lost hearts count
+
+            if (lostHeartsCount == 3) { // Check if lost hearts count is 3
                 GameOver();
             }
+        }
         }
 
     public void GameOver()
     {
         GameObject[] EnemySecretServiceObjects = GameObject.FindGameObjectsWithTag("TinyMan");
-        Debug.LogError("got tin man");
 
         foreach (GameObject EnemySecretServiceObject in EnemySecretServiceObjects)
         {
@@ -159,11 +163,36 @@ public class GameManager : MonoBehaviour
             {
                 // Call the TogglePause function, passing true to pause the object's movement
                 randomMovementScript.TogglePause(true);
-            }
-            else
-            {
-                Debug.LogError("RandomMovement1 script not found on GameObject with tag RandomMover.");
+                randomMovementScript.allowTracking = false;
             }
         }
+        
+        // GameOverToPlayerDeathAnim();
+        GameObject PlayerObject = GameObject.FindGameObjectWithTag("Player");
+        PlayerObject.GetComponent<Animator>().Play("PlayerDeath");
+        playerDeathScript.PlayerDeathFunction();   
     }
+
+    public void GameOverToPlayerDeathAnim()
+    {
+        GameObject PlayerObject = GameObject.FindGameObjectWithTag("Player");
+        playerDeathScript = PlayerObject.GetComponent<PlayerDeath>();
+        playerDeathScript.PlayerDeathFunction();        
+    }
+
+    // public void ZoomOutToViewWholeLevel()
+    // {
+    //     CameraController cameraController = Camera.main.GetComponent<CameraController>();
+    //     if (cameraController != null)
+    //     {
+    //         cameraController.isPlayerControlEnabled = false;
+    //         cameraController.SetAfterGunTransitionSiza(24);
+    //         cameraController.transform.position = new Vector3(33, 23, Camera.main.transform.position.z);
+    //     }        
+
+    // }
+
+        // maybe play animation of player dying/ destroy player object/ StartTransitionPanning() camera 
+        // instantiate try again button
+        // instantiate main menu button
 }

@@ -23,6 +23,7 @@ public class RandomMovement1 : MonoBehaviour
     private Transform currentTarget;
     private bool isFollowingTarget = false;
     private Transform visibleTarget;
+    public bool allowTracking = true;
 
     private enum State
     {
@@ -63,7 +64,7 @@ public class RandomMovement1 : MonoBehaviour
             currentState = State.Paused;
         }
 
-        if (fieldOfView.visibleTargets.Count > 0)
+        if (fieldOfView.visibleTargets.Count > 0 && allowTracking)
         {
             visibleTarget  = fieldOfView.visibleTargets[0];
             MoveToVisibleTarget(visibleTarget);
@@ -75,13 +76,6 @@ public class RandomMovement1 : MonoBehaviour
                 case State.Moving:
                     MoveToTarget();
                     break;
-
-                // case State.Tracking:
-                //     if (visibleTarget != null)
-                //     {
-                //         MoveToVisibleTarget(visibleTarget);
-                //     }
-                //     break;
                 
                 case State.BackingUp:
                     Backup();
@@ -100,7 +94,6 @@ public class RandomMovement1 : MonoBehaviour
                     break;
             }            
         }
-        // UpdateRotationTowardsTarget();
         timer += Time.fixedDeltaTime;
         CheckInactivity();
         UpdateSpriteFlip();
@@ -114,6 +107,7 @@ public class RandomMovement1 : MonoBehaviour
     }
     void MoveToVisibleTarget(Transform target)
     {
+        moveSpeed = 5f;
         float step = moveSpeed * Time.fixedDeltaTime;
         Vector3 newPosition = Vector3.MoveTowards(transform.position, target.position, step);
         rb.MovePosition(newPosition);
@@ -222,18 +216,4 @@ public class RandomMovement1 : MonoBehaviour
             Debug.LogError("No SecretService child found");
         }
     }
-    
-    // public void OnTargetDetected(Transform target)
-    // {
-    //     currentTarget = target;
-    //     isFollowingTarget = true;
-    //     // Handle other logic on target detection
-    // }
-
-    // public void OnTargetLost()
-    // {
-    //     currentTarget = null;
-    //     isFollowingTarget = false;
-    //     // Handle other logic on target loss
-    // }
 }
