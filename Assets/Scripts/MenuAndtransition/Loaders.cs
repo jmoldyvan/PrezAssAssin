@@ -21,7 +21,6 @@ public class Loaders : MonoBehaviour
     }
     public void BackToMainMenu()
     {
-        
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 1));
     }
     public void QuitGame()

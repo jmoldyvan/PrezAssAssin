@@ -12,6 +12,9 @@ TagManager:
   - GunTransition
   - ExitDoor
   - PlayerVision
+  - GameOverButtons
+  - NextLevelButtons
+  - MainMenuButton
   layers:
   - Default
   - TransparentFX

@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         GameObject[] EnemySecretServiceObjects = GameObject.FindGameObjectsWithTag("TinyMan");
-
+        
         foreach (GameObject EnemySecretServiceObject in EnemySecretServiceObjects)
         {
             // Get the RandomMovement1 script component from the GameObject
@@ -166,31 +166,67 @@ public class GameManager : MonoBehaviour
             }
         }
         
-        // GameOverToPlayerDeathAnim();
+
         GameObject PlayerObject = GameObject.FindGameObjectWithTag("Player");
-        PlayerObject.GetComponent<Animator>().Play("PlayerDeath");
-        playerDeathScript.PlayerDeathFunction();   
+        if(PlayerObject)
+        {
+            playerDeathScript = PlayerObject.GetComponent<PlayerDeath>();
+            PlayerObject.GetComponent<Animator>().Play("PlayerDeath");
+            playerDeathScript.PlayerDeathFunction();   
+
+            StartCoroutine(ActivateButtonsAfterDelay(5f));
+        }
+
+        else
+        {
+            GameOverToNoPlayer();  
+        }   
+
     }
 
-    public void GameOverToPlayerDeathAnim()
+    public void GameOverToNoPlayer()
     {
-        GameObject PlayerObject = GameObject.FindGameObjectWithTag("Player");
-        playerDeathScript = PlayerObject.GetComponent<PlayerDeath>();
-        playerDeathScript.PlayerDeathFunction();        
+        CameraController cameraController = Camera.main.GetComponent<CameraController>();
+        if (cameraController != null)
+        {
+            GameObject PrezObject = GameObject.FindGameObjectWithTag("Prez");
+            Destroy(PrezObject);
+            cameraController.isPlayerControlEnabled = false;
+            cameraController.StartTransitionPanning();
+            cameraController.MoveToTarget(new Vector3(33, 23, Camera.main.transform.position.z));
+        }  
+        StartCoroutine(ActivateButtonsAfterDelay(5f));
+
     }
 
-    // public void ZoomOutToViewWholeLevel()
-    // {
-    //     CameraController cameraController = Camera.main.GetComponent<CameraController>();
-    //     if (cameraController != null)
-    //     {
-    //         cameraController.isPlayerControlEnabled = false;
-    //         cameraController.SetAfterGunTransitionSiza(24);
-    //         cameraController.transform.position = new Vector3(33, 23, Camera.main.transform.position.z);
-    //     }        
+        IEnumerator ActivateButtonsAfterDelay(float delay)
+    {
+        // Wait for the specified delay
+        yield return new WaitForSeconds(delay);
 
-    // }
-
+        // Find the Phase2Button 1 object
+        GameObject phase2Button1 = GameObject.Find("Phase2Button 1");
+        if (phase2Button1 != null)
+        {
+            // Access its child named Phase2Button
+            Transform phase2Button = phase2Button1.transform.Find("Phase2Button");
+            if (phase2Button != null)
+            {
+                // Get all children with the tag GameOverButtons and activate them
+                foreach (Transform child in phase2Button)
+                {
+                    if (child.CompareTag("GameOverButtons"))
+                    {
+                        child.gameObject.SetActive(true);
+                    }
+                    if (child.CompareTag("MainMenuButton"))
+                    {
+                        child.gameObject.SetActive(true);
+                    }
+                }
+            }
+        }
+    }
         // maybe play animation of player dying/ destroy player object/ StartTransitionPanning() camera 
         // instantiate try again button
         // instantiate main menu button

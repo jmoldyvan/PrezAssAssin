@@ -38,10 +38,6 @@ public class CameraController : MonoBehaviour
         {
             target = GameObject.FindGameObjectWithTag("Player");
         }
-        if (!target)  // If Prez is not found, then try to find Player
-        {
-            target = null;
-        }
 
 
         if (isPlayerControlEnabled){
@@ -75,6 +71,8 @@ public class CameraController : MonoBehaviour
         }
         if (shouldPan)
         {
+            if(target)
+            {
             Vector3 targetPosition = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * panSpeedOnTransition);
 
@@ -82,15 +80,27 @@ public class CameraController : MonoBehaviour
             float targetCameraSize = 6;
 
             Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetCameraSize, Time.deltaTime * panSpeedOnTransition);
+            }
+            if(!target)
+            {
+            Vector3 targetPosition = new Vector3(33, 23, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * panSpeedOnTransition);
+
+            // Set the target camera size here. For example, I'm using 10.
+            float targetCameraSize = 25;
+
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetCameraSize, Time.deltaTime * panSpeedOnTransition);
+            }
+
         }
 
     }
 
-        public void MoveToTarget(Vector3 newTargetPosition) 
-        {
-            targetPosition = newTargetPosition;
-            isMoving = true;  // Set the movement flag to true
-        }
+    public void MoveToTarget(Vector3 newTargetPosition) 
+    {
+        targetPosition = newTargetPosition;
+        isMoving = true;  // Set the movement flag to true
+    }
     public void StartTransitionPanning()
     {
         shouldPan = true;

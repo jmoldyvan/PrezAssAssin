@@ -7,9 +7,9 @@ using System.Collections.Generic;
 public class ExitDoorBehavior : MonoBehaviour
 {
     public GameObject Player;
-    public Animator animator;
+    // public Animator animator;
     public GameObject BackToMainMenuPrefab;
-    public GameObject NextLevelPrefab;
+    // public GameObject NextLevelPrefab;
     public GameObject CreditsTextPrefab;
     public Transform buttonsSpawnPoint;
     private float originalFixedDeltaTime;
@@ -78,14 +78,15 @@ public class ExitDoorBehavior : MonoBehaviour
     }
 
     Destroy(Player);
-    animator.SetTrigger("LevelFinished");
+    // animator.SetTrigger("LevelFinished");
     Invoke("SpawnUIElements", 3f);
+    StartCoroutine(ActivateButtonsAfterDelay(3.5f));    
     }
 
     void SpawnUIElements()
     {
         Instantiate(BackToMainMenuPrefab, buttonsSpawnPoint.position, Quaternion.identity);
-        Instantiate(NextLevelPrefab, buttonsSpawnPoint.position + Vector3.right * 2f, Quaternion.identity);
+        // Instantiate(NextLevelPrefab, buttonsSpawnPoint.position + Vector3.right * 2f, Quaternion.identity);
         Instantiate(CreditsTextPrefab, buttonsSpawnPoint.position + Vector3.up * 2f, Quaternion.identity);
     }
     
@@ -99,4 +100,33 @@ public class ExitDoorBehavior : MonoBehaviour
             Time.fixedDeltaTime = originalFixedDeltaTime * Time.timeScale;
         }
     }
+        IEnumerator ActivateButtonsAfterDelay(float delay)
+    {
+        // Wait for the specified delay
+        yield return new WaitForSeconds(delay);
+
+        // Find the Phase2Button 1 object
+        GameObject phase2Button1 = GameObject.Find("Phase2Button 1");
+        if (phase2Button1 != null)
+        {
+            // Access its child named Phase2Button
+            Transform phase2Button = phase2Button1.transform.Find("Phase2Button");
+            if (phase2Button != null)
+            {
+                // Get all children with the tag GameOverButtons and activate them
+                foreach (Transform child in phase2Button)
+                {
+                    if (child.CompareTag("NextLevelButtons"))
+                    {
+                        child.gameObject.SetActive(true);
+                    }
+                    if (child.CompareTag("MainMenuButton"))
+                    {
+                        child.gameObject.SetActive(true);
+                    }
+                }
+            }
+        }
+    }
 }
+
