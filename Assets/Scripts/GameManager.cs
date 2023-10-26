@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void CreatePeople(int width, int height, int numberOfPeople)
     {
+        
         for (int i = 0; i < numberOfPeople; i++)
         {
             Vector3Int randomTilePosition = new Vector3Int(
