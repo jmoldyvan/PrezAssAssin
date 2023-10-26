@@ -33,38 +33,61 @@ public class AfterGunBarrelToPhase2 : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     
-    {Debug.Log("OnStateExit method called!");
+    {
+        Debug.Log("OnStateExit method called!");
+        GameObject playerAndHatchSpawnObjects = GameObject.Find("PlayerAndHatchSpawnObjects");
+        // Player spawn boundry
 
         // 1. Locate the PlayerSpawnBoundary GameObject
-        GameObject playerAndHatchSpawnObjects = GameObject.Find("PlayerAndHatchSpawnObjects");
-        Debug.Log(playerAndHatchSpawnObjects);
         Transform playerSpawnBoundaryTransform = playerAndHatchSpawnObjects.transform.Find("PlayerSpawnBoundry");
         Debug.Log(playerSpawnBoundaryTransform);
         
         // 2. Find the 4 child objects
 
-        Transform topLeft = playerSpawnBoundaryTransform.Find("PlayerCornerTopLeft");
-        Debug.Log("topLeft: " + topLeft);
-        Transform topRight = playerSpawnBoundaryTransform.Find("PlayerCornerTopRight");
-        Debug.Log("topRight: " + topRight);
-        Transform bottomLeft = playerSpawnBoundaryTransform.Find("PlayerCornerBottomLeft");
-        Debug.Log("bottomLeft: " + bottomLeft);
-        Transform bottomRight = playerSpawnBoundaryTransform.Find("PlayerCornerBottomRight");
-        Debug.Log("bottomRight: " + bottomRight);
-
+        Transform PlayerTopLeft = playerSpawnBoundaryTransform.Find("PlayerCornerTopLeft");
+        Transform PlayerTopRight = playerSpawnBoundaryTransform.Find("PlayerCornerTopRight");
+        Transform PlayerBottomLeft = playerSpawnBoundaryTransform.Find("PlayerCornerBottomLeft");
+        Transform PlayerBottomRight = playerSpawnBoundaryTransform.Find("PlayerCornerBottomRight");
         
         // 3. Retrieve the x and y coordinates
-        float PlayerSpawnXmin = bottomLeft.position.x;
-        float PlayerSpawnXmax = topRight.position.x;
-        float PlayerSpawnYmin = bottomLeft.position.y;
-        float PlayerSpawnYmax = topLeft.position.y;
+        float PlayerSpawnXmin = PlayerBottomLeft.position.x;
+        float PlayerSpawnXmax = PlayerTopRight.position.x;
+        float PlayerSpawnYmin = PlayerBottomLeft.position.y;
+        float PlayerSpawnYmax = PlayerTopLeft.position.y;
 
         float PlayerRandomXCord = Random.Range(PlayerSpawnXmin, PlayerSpawnXmax);
         float PlayerRandomYCord = Random.Range(PlayerSpawnYmin, PlayerSpawnYmax);
-        Vector3 exitDoorPosition = new Vector3(72f, 21f, 0);
 
         Vector3 playerPosition = new Vector3(PlayerRandomXCord, PlayerRandomYCord, 1.5f); 
+
+        // ExitDoor(Hatch) spawn boundry
+
+        // 1. Locate the HatchSpawnBoundary GameObject
+        Transform HatchSpawnBoundaryTransform = playerAndHatchSpawnObjects.transform.Find("HatchSpawnBoundry");
+        Debug.Log(HatchSpawnBoundaryTransform);
+        
+        // 2. Find the 4 child objects
+
+        Transform HatchTopLeft = HatchSpawnBoundaryTransform.Find("HatchCornerTopLeft");
+        Transform HatchTopRight = HatchSpawnBoundaryTransform.Find("HatchCornerTopRight");
+        Transform HatchBottomLeft = HatchSpawnBoundaryTransform.Find("HatchCornerBottomLeft");
+        Transform HatchBottomRight = HatchSpawnBoundaryTransform.Find("HatchCornerBottomRight");
+        
+        // 3. Retrieve the x and y coordinates
+        float HatchSpawnXmin = HatchBottomLeft.position.x;
+        float HatchSpawnXmax = HatchTopRight.position.x;
+        float HatchSpawnYmin = HatchBottomLeft.position.y;
+        float HatchSpawnYmax = HatchTopLeft.position.y;
+
+        float HatchRandomXCord = Random.Range(HatchSpawnXmin, HatchSpawnXmax);
+        float HatchRandomYCord = Random.Range(HatchSpawnYmin, HatchSpawnYmax);
+
+
+        Vector3 exitDoorPosition = new Vector3(HatchRandomXCord, HatchRandomYCord, 0);  
+
+
         Vector3 Phase2ButtonPosition = new Vector3(25f, 25f, -6); 
+
         Quaternion rotation = Quaternion.identity;
 
         GameObject createDoor = Instantiate(ExitDoor1, exitDoorPosition, rotation);

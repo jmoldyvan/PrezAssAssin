@@ -5,16 +5,34 @@ using System.Linq;
 
 public class DissolveOnAnim : StateMachineBehaviour
 {
-    // Rectangle coordinates
-    public float xMin = -8f;
-    public float xMax = 1f;
-    public float yMin = 8f;
-    public float yMax = 14.5f;
+
+        // Rectangle coordinates
+        public float xMin = 0;
+        public float xMax = 0;
+        public float yMin = 0;
+        public float yMax = 0;
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Find and destroy objects within the rectangle
         GameObject[] allTinyMen = GameObject.FindGameObjectsWithTag("TinyMan");
+        GameObject ClearAreaForPlayer = GameObject.Find("ClearAreaForPlayer");
+        // Player spawn boundry
+
+        // 1. Locate the PlayerSpawnBoundary GameObject
+        Transform ClearAreaForPlayerBoundryTransform = ClearAreaForPlayer.transform.Find("ClearAreaForPlayerBoundry");
+        
+        // 2. Find the 4 child objects
+
+        Transform ClearAreaTopLeft = ClearAreaForPlayerBoundryTransform.Find("ClearAreaCornerTopLeft");
+        Transform ClearAreaTopRight = ClearAreaForPlayerBoundryTransform.Find("ClearAreaCornerTopRight");
+        Transform ClearAreaBottomLeft = ClearAreaForPlayerBoundryTransform.Find("ClearAreaCornerBottomLeft");
+        Transform ClearAreaBottomRight = ClearAreaForPlayerBoundryTransform.Find("ClearAreaCornerBottomRight");
+
+        float xMin = ClearAreaBottomLeft.position.x;
+        float xMax = ClearAreaTopRight.position.x;
+        float yMin = ClearAreaBottomLeft.position.y;
+        float yMax = ClearAreaTopLeft.position.y;
 
         foreach (GameObject tinyMan in allTinyMen)
         {
