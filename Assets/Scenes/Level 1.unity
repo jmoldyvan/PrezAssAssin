@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2716,7 +2716,7 @@ GameObject:
   - component: {fileID: 665692860}
   - component: {fileID: 665692861}
   m_Layer: 0
-  m_Name: PlayerCornerBottomRight
+  m_Name: TinyMenBoundryBottomRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2730,7 +2730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665692859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.9, y: -30.2, z: 0}
+  m_LocalPosition: {x: 18.36, y: -32.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8259,7 +8259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 909374644}
   m_Layer: 0
-  m_Name: PlayerSpawnBoundry
+  m_Name: TinyMenSpawnBoundry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15219,7 +15219,7 @@ GameObject:
   - component: {fileID: 1775708476}
   - component: {fileID: 1775708477}
   m_Layer: 0
-  m_Name: PlayerCornerTopRight
+  m_Name: TinyMenBoundryTopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15474,7 +15474,7 @@ GameObject:
   - component: {fileID: 1831320311}
   - component: {fileID: 1831320312}
   m_Layer: 0
-  m_Name: PlayerCornerBottomLeft
+  m_Name: TinyMenBoundryBottomLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15488,7 +15488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831320310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.1, y: -34.3, z: 0}
+  m_LocalPosition: {x: -25.07, y: -32.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16063,7 +16063,7 @@ GameObject:
   - component: {fileID: 2080465403}
   - component: {fileID: 2080465404}
   m_Layer: 0
-  m_Name: PlayerCornerTopLeft
+  m_Name: TinyMenBoundryTopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -55,28 +55,46 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SpawnPrez(110, 50);
-        CreatePeople(110, 55, 100);
+        CreatePeople(100);
     }
 
-    public struct Coordinate
-    {
-        public int X, Y;
+    // public struct Coordinate
+    // {
+    //     public int X, Y;
 
-        public Coordinate(int x, int y)
-        {
-            X = x;
-            Y = y;
-        }
-    }
+    //     public Coordinate(int x, int y)
+    //     {
+    //         X = x;
+    //         Y = y;
+    //     }
+    // }
 
-    public void CreatePeople(int width, int height, int numberOfPeople)
+    public void CreatePeople(int numberOfPeople)
     {
+        GameObject TinyMenSpawnBoundry = GameObject.Find("TinyMenSpawnBoundry");
+        // Player spawn boundry
+
+        // 1. Locate the TinyMenSpawnBoundry GameObject
+        Transform TinyMenSpawnBoundryTransform = TinyMenSpawnBoundry.transform.Find("TinyMenSpawnBoundry");
+        Debug.Log(TinyMenSpawnBoundryTransform);
         
+        // 2. Find the 4 child objects
+
+        Transform TinyMenTopLeft = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryTopLeft");
+        Transform TinyMenTopRight = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryTopRight");
+        // Transform TinyMenBottomLeft = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryBottomLeft");
+        // Transform TinyMenBottomRight = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryBottomRight");
+        
+        // 3. Retrieve the x and y coordinates
+        int TinyMenSpawnXmin = Mathf.FloorToInt(TinyMenTopLeft.position.x);
+        int TinyMenSpawnXmax = Mathf.CeilToInt(TinyMenTopRight.position.x);
+        int TinyMenSpawnYmax = Mathf.CeilToInt(TinyMenTopLeft.position.y);
+
         for (int i = 0; i < numberOfPeople; i++)
         {
             Vector3Int randomTilePosition = new Vector3Int(
-                Random.Range(-15, width),
-                Random.Range(0, height),
+                Random.Range(TinyMenSpawnXmin, TinyMenSpawnXmax + 1),
+                Random.Range(-50, TinyMenSpawnYmax + 1),
                 0
             );
 
@@ -90,7 +108,6 @@ public class GameManager : MonoBehaviour
                 i--;  // Decrement i to try again
             }
         }
-    
 }
 
     public void ShuffleList<T>(IList<T> list)
