@@ -107,10 +107,16 @@ public class RandomMovement1 : MonoBehaviour
     }
     void MoveToVisibleTarget(Transform target)
     {
+        if (target == null)
+        {
+            isPaused = true;
+            return;
+        }
         moveSpeed = 5f;
         float step = moveSpeed * Time.fixedDeltaTime;
         Vector3 newPosition = Vector3.MoveTowards(transform.position, target.position, step);
         rb.MovePosition(newPosition);
+
     }
     void Backup()
     {

@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-
+using System.Linq;
 public class ExitDoorBehavior : MonoBehaviour
 {
     public GameObject Player;
@@ -38,7 +38,8 @@ public class ExitDoorBehavior : MonoBehaviour
     }
 
     IEnumerator ShrinkPlayer()
-    {
+    {        
+        PauseGame();
         Vector3 originalScale = Player.transform.localScale;
         Vector3 targetScale = Vector3.zero;  // Target scale is zero (fully shrunk)
         float duration = 1.5f;  // Duration of 1 second
@@ -53,44 +54,46 @@ public class ExitDoorBehavior : MonoBehaviour
         }
 
         Player.transform.localScale = targetScale;  // Ensure the final scale is set correctly
-        PauseGame();
+            Destroy(Player);
+            StartCoroutine(ActivateButtonsAfterDelay(3.5f));   
+
     }
 
     void PauseGame()
     {
-    GameObject[] EnemySecretServiceObjects = GameObject.FindGameObjectsWithTag("TinyMan");
+    string[] enemyNamesToFind = { "FOVSecretService(Clone)" };
 
-    foreach (GameObject EnemySecretServiceObject in EnemySecretServiceObjects)
+    foreach (string enemyName in enemyNamesToFind)
     {
-        // Get the RandomMovement1 script component from the GameObject
-        RandomMovement1 randomMovementScript = EnemySecretServiceObject.GetComponent<RandomMovement1>();
+        GameObject enemyObject = GameObject.Find(enemyName);
 
-        // If the RandomMovement1 script was found
-        if(randomMovementScript != null)
+        if (enemyObject != null)
         {
-            // Call the TogglePause function, passing true to pause the object's movement
-            randomMovementScript.TogglePause(true);
+            // Get the RandomMovement1 script component from the GameObject
+            RandomMovement1 randomMovementScript = enemyObject.GetComponent<RandomMovement1>();
+
+            // If the RandomMovement1 script was found
+            if (randomMovementScript != null)
+            {
+                // Call the TogglePause function, passing true to pause the object's movement
+                randomMovementScript.TogglePause(true);
+                                Debug.Log("Paused movement for: " + enemyName);
+
+            }
+            else
+            {
+                Debug.LogError("RandomMovement1 script not found on GameObject with name: " + enemyName);
+            }
         }
         else
         {
-            Debug.LogError("RandomMovement1 script not found on GameObject with tag RandomMover.");
+            Debug.LogError("GameObject with name: " + enemyName + " not found.");
         }
     }
 
-    Destroy(Player);
-    // animator.SetTrigger("LevelFinished");
-    Invoke("SpawnUIElements", 3f);
     StartCoroutine(ActivateButtonsAfterDelay(3.5f));    
     }
 
-    void SpawnUIElements()
-    {
-        Instantiate(BackToMainMenuPrefab, buttonsSpawnPoint.position, Quaternion.identity);
-        // Instantiate(NextLevelPrefab, buttonsSpawnPoint.position + Vector3.right * 2f, Quaternion.identity);
-        Instantiate(CreditsTextPrefab, buttonsSpawnPoint.position + Vector3.up * 2f, Quaternion.identity);
-    }
-    
-    // This method could be used to revert slow motion effects gradually.
     void Update()
     {
         if (Time.timeScale < 1f)

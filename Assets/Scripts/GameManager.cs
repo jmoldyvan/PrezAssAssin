@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,8 +55,30 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+         Debug.Log(SceneManager.GetActiveScene().buildIndex);
         SpawnPrez(110, 50);
-        CreatePeople(100);
+        if(SceneManager.GetActiveScene().buildIndex == 2 )
+        {
+            CreatePeople(10);
+        }
+        if(SceneManager.GetActiveScene().buildIndex == 3 )
+        {
+            CreatePeople(50);
+        }
+        if(SceneManager.GetActiveScene().buildIndex == 4 )
+        {
+            CreatePeople(100);
+        }
+        if(SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            CreatePeople(100);
+        }
+        if(SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            CreatePeople(150);
+        }
+        
+
     }
 
     // public struct Coordinate
