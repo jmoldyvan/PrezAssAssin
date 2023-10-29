@@ -4,7 +4,10 @@ public class Phase2ButtonHandler : MonoBehaviour
 {
     public void OnPhase2ButtonPressed()
     {
-        Debug.Log("Phase 2 Button Pressed!");
+        GameObject Player = GameObject.FindGameObjectWithTag("Player");
+        PlayerMovement PlayerMovementScript = Player.GetComponent<PlayerMovement>();
+        PlayerMovementScript.ToggleMovement(true);
+
         GameObject[] allTinyMen = GameObject.FindGameObjectsWithTag("TinyMan");
 
         foreach (var tinyMan in allTinyMen)

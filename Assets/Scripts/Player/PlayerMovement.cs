@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
 
     // Add this variable to check if player movement is allowed
-    public bool allowMovement = true;
+    public bool allowMovement = false;
 
     // Update is called once per frame
     void Update()

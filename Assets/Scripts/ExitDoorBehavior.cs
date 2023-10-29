@@ -28,18 +28,22 @@ public class ExitDoorBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger entered by: " + other.gameObject.name);
         if (other.CompareTag("Player"))
         {
+            GameObject Playerplayer = GameObject.FindGameObjectWithTag("Player");
+            PlayerMovement PlayerMovementScript = Playerplayer.GetComponent<PlayerMovement>();
+            PlayerMovementScript.ToggleMovement(false);
             Player = other.gameObject;  // Set Player to the colliding object
             DoSlowMotion(0.1f);  // Initiating slow motion.
             StartCoroutine(ShrinkPlayer());
+            PauseGame();
         }
     }
 
     IEnumerator ShrinkPlayer()
-    {        
-        PauseGame();
+    {
+        // Debug.Log("Shrinking player...");
+        
         Vector3 originalScale = Player.transform.localScale;
         Vector3 targetScale = Vector3.zero;  // Target scale is zero (fully shrunk)
         float duration = 1.5f;  // Duration of 1 second
@@ -47,47 +51,46 @@ public class ExitDoorBehavior : MonoBehaviour
 
         while (elapsedTime < duration)
         {
-            elapsedTime += Time.unscaledDeltaTime;  // Use unscaled time so it works even when time is slowed down
+            elapsedTime += Time.unscaledDeltaTime;
             float t = elapsedTime / duration;
             Player.transform.localScale = Vector3.Lerp(originalScale, targetScale, t);
+            // Debug.Log("Current Scale: " + Player.transform.localScale); // Add this line
             yield return null;
         }
 
         Player.transform.localScale = targetScale;  // Ensure the final scale is set correctly
-            Destroy(Player);
-            StartCoroutine(ActivateButtonsAfterDelay(3.5f));   
-
+        // Debug.Log("Player has been shrunk.");
+        
+        Destroy(Player);
+        StartCoroutine(ActivateButtonsAfterDelay(3.5f));
     }
 
     void PauseGame()
     {
-    string[] enemyNamesToFind = { "FOVSecretService(Clone)" };
+        GameObject[] tinyManObjects = GameObject.FindGameObjectsWithTag("TinyMan");
 
-    foreach (string enemyName in enemyNamesToFind)
+    foreach (GameObject tinyManObject in tinyManObjects)
     {
-        GameObject enemyObject = GameObject.Find(enemyName);
-
-        if (enemyObject != null)
+        if (tinyManObject  != null)
         {
             // Get the RandomMovement1 script component from the GameObject
-            RandomMovement1 randomMovementScript = enemyObject.GetComponent<RandomMovement1>();
+            RandomMovement1 randomMovementScript = tinyManObject.GetComponent<RandomMovement1>();
 
             // If the RandomMovement1 script was found
             if (randomMovementScript != null)
             {
                 // Call the TogglePause function, passing true to pause the object's movement
                 randomMovementScript.TogglePause(true);
-                                Debug.Log("Paused movement for: " + enemyName);
-
+                Debug.Log("Paused movement for: " + tinyManObject.name);
             }
             else
             {
-                Debug.LogError("RandomMovement1 script not found on GameObject with name: " + enemyName);
+                Debug.LogError("RandomMovement1 script not found on GameObject with name: " + tinyManObject.name);
             }
         }
         else
         {
-            Debug.LogError("GameObject with name: " + enemyName + " not found.");
+            Debug.LogError("GameObject with name: " + tinyManObject.name + " not found.");
         }
     }
 

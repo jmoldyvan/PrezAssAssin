@@ -14,7 +14,7 @@ public class RandomMovement1 : MonoBehaviour
     private Vector3 targetPosition;
     private Quaternion lastValidRotation;
     private float timer = 0f;
-    private bool isPaused = false;
+    public bool isPaused = false;
     private bool collided = false;
     private Vector2 backupDirection;
     private float moveSpeed;
@@ -59,6 +59,7 @@ public class RandomMovement1 : MonoBehaviour
 
     void FixedUpdate()
     {
+
         if (isPaused)
         {
             currentState = State.Paused;
