@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using UnityEngine.SceneManagement;
 public class DissolveOnAnim : StateMachineBehaviour
 {
 
@@ -14,6 +14,31 @@ public class DissolveOnAnim : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
+        int numberOfObjectsToLeave = 0;
+
+        // Dissolve random objects
+        if(SceneManager.GetActiveScene().buildIndex == 2 )
+            {
+                numberOfObjectsToLeave = 10;
+            }
+        if(SceneManager.GetActiveScene().buildIndex == 3 )
+            {
+                numberOfObjectsToLeave = 30;
+            }
+        if(SceneManager.GetActiveScene().buildIndex == 4 )
+            {
+                numberOfObjectsToLeave = 30;
+            }
+        if(SceneManager.GetActiveScene().buildIndex == 5)
+            {
+               numberOfObjectsToLeave = 60;
+            }
+        if(SceneManager.GetActiveScene().buildIndex == 6)
+            {
+                numberOfObjectsToLeave = 100;
+            }
+
         // Find and destroy objects within the rectangle
         GameObject[] allTinyMen = GameObject.FindGameObjectsWithTag("TinyMan");
         GameObject ClearAreaForPlayer = GameObject.Find("ClearAreaForPlayer");
@@ -46,9 +71,6 @@ public class DissolveOnAnim : StateMachineBehaviour
 
         // Update the allTinyMen array after destroying the objects in the rectangle
         allTinyMen = GameObject.FindGameObjectsWithTag("TinyMan");
-
-        // Dissolve random objects
-        int numberOfObjectsToLeave = 30;
 
         if (allTinyMen.Length > numberOfObjectsToLeave)
         {

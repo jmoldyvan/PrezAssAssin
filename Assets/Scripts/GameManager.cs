@@ -56,41 +56,30 @@ public class GameManager : MonoBehaviour
     void Start()
     {
          Debug.Log(SceneManager.GetActiveScene().buildIndex);
-        SpawnPrez(110, 50);
+        SpawnPrez();
         if(SceneManager.GetActiveScene().buildIndex == 2 )
         {
-            CreatePeople(10);
+            CreatePeople(20);
         }
         if(SceneManager.GetActiveScene().buildIndex == 3 )
         {
-            CreatePeople(50);
+            CreatePeople(100);
         }
         if(SceneManager.GetActiveScene().buildIndex == 4 )
         {
-            CreatePeople(100);
+            CreatePeople(200);
         }
         if(SceneManager.GetActiveScene().buildIndex == 5)
         {
-            CreatePeople(100);
+            CreatePeople(200);
         }
         if(SceneManager.GetActiveScene().buildIndex == 6)
         {
-            CreatePeople(150);
+            CreatePeople(300);
         }
         
 
     }
-
-    // public struct Coordinate
-    // {
-    //     public int X, Y;
-
-    //     public Coordinate(int x, int y)
-    //     {
-    //         X = x;
-    //         Y = y;
-    //     }
-    // }
 
     public void CreatePeople(int numberOfPeople)
     {
@@ -105,8 +94,6 @@ public class GameManager : MonoBehaviour
 
         Transform TinyMenTopLeft = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryTopLeft");
         Transform TinyMenTopRight = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryTopRight");
-        // Transform TinyMenBottomLeft = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryBottomLeft");
-        // Transform TinyMenBottomRight = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryBottomRight");
         
         // 3. Retrieve the x and y coordinates
         int TinyMenSpawnXmin = Mathf.FloorToInt(TinyMenTopLeft.position.x);
@@ -148,13 +135,13 @@ public class GameManager : MonoBehaviour
     }
 
     // Function to spawn a single Prez object// Function to spawn a single Prez object
-    void SpawnPrez(int width, int height)
+    void SpawnPrez()
     {
         for (int i = 0; i < 1; i++)  // We only want to spawn one Prez
         {
             Vector3Int randomTilePosition = new Vector3Int(
-                Random.Range(-15, width),
-                Random.Range(0, height),
+                Random.Range(-50, 150),
+                Random.Range(-50, 150),
                 0
             );
 
