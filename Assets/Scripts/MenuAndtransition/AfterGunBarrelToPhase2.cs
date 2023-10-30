@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AfterGunBarrelToPhase2 : StateMachineBehaviour
 {
@@ -99,7 +100,30 @@ public class AfterGunBarrelToPhase2 : StateMachineBehaviour
     {            
         CameraController cameraController = Camera.main.GetComponent<CameraController>();
         cameraController.isPlayerControlEnabled = false;
-        cameraController.SetAfterGunTransitionSiza(24);
-        cameraController.transform.position = new Vector3(33, 23, Camera.main.transform.position.z);
+        if(SceneManager.GetActiveScene().buildIndex == 2 )
+        {
+                    cameraController.SetAfterGunTransitionSiza(20);
+                    cameraController.transform.position = new Vector3(30, 28, Camera.main.transform.position.z);
+        }
+        if(SceneManager.GetActiveScene().buildIndex == 3 )
+        {
+                    cameraController.SetAfterGunTransitionSiza(40);
+        cameraController.transform.position = new Vector3(20, 24, Camera.main.transform.position.z);
+        }
+        if(SceneManager.GetActiveScene().buildIndex == 4 )
+        {
+                    cameraController.SetAfterGunTransitionSiza(30);
+        cameraController.transform.position = new Vector3(30, 23, Camera.main.transform.position.z);
+        }
+        if(SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            cameraController.SetAfterGunTransitionSiza(32);
+        cameraController.transform.position = new Vector3(22, 27, Camera.main.transform.position.z);
+        }
+        if(SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            cameraController.SetAfterGunTransitionSiza(50);
+        cameraController.transform.position = new Vector3(20, 24, Camera.main.transform.position.z);
+        }
     }
 }
