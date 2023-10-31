@@ -7,22 +7,19 @@ public class FieldOfView : MonoBehaviour
     public float viewRadius;
     [Range(0, 360)]
     public float viewAngle;
-
     public LayerMask targetMask;
     public LayerMask obstacleMask;
-
     [HideInInspector]
     public List<Transform> visibleTargets = new List<Transform>();
-
+private MeshRenderer fovRenderer;
+private Material originalMaterial;
+public Material targetDetectedMaterial; 
     public float meshResolution;
     public int edgeResolveIterations;
     public float edgeDstThreshold;
-
     public MeshFilter viewMeshFilter;
     Mesh viewMesh;
-
     public ITargetDetectable targetDetectable;
-
     private Transform currentTarget;
 
     void Start()
@@ -30,7 +27,11 @@ public class FieldOfView : MonoBehaviour
         viewMesh = new Mesh();
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
-
+        fovRenderer = transform.GetChild(0).GetComponent<MeshRenderer>();
+        if (fovRenderer.materials.Length > 0)
+        {
+            originalMaterial = fovRenderer.materials[0];
+        }
         StartCoroutine("FindTargetsWithDelay", .2f);
     }
 
@@ -48,26 +49,40 @@ public class FieldOfView : MonoBehaviour
         DrawFieldOfView();
     }
 
-    void FindVisibleTargets()
-    {
-        visibleTargets.Clear();
-        Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
+void FindVisibleTargets()
+{
+    visibleTargets.Clear();
+    Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
 
-        for (int i = 0; i < targetsInViewRadius.Length; i++)
+    bool playerTargetDetected = false;
+    for (int i = 0; i < targetsInViewRadius.Length; i++)
+    {
+        Transform target = targetsInViewRadius[i].transform;
+        Vector2 dirToTarget = (target.position - transform.position).normalized;
+        if (Vector2.Angle(transform.right, dirToTarget) < viewAngle / 2)
         {
-            Transform target = targetsInViewRadius[i].transform;
-            Vector2 dirToTarget = (target.position - transform.position).normalized;
-            if (Vector2.Angle(transform.right, dirToTarget) < viewAngle / 2)
+            float dstToTarget = Vector2.Distance(transform.position, target.position);
+            if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
             {
-                float dstToTarget = Vector2.Distance(transform.position, target.position);
-                if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                visibleTargets.Add(target);
+                if(target.CompareTag("Player"))  // Assuming your player has a tag of "Player"
                 {
-                    visibleTargets.Add(target);
+                    playerTargetDetected = true;
                 }
             }
         }
-
     }
+
+    // Switch materials based on player target detection
+    if (playerTargetDetected)
+    {
+        fovRenderer.material = targetDetectedMaterial;
+    }
+    else
+    {
+        fovRenderer.material = originalMaterial;
+    }
+}
 
     void DrawFieldOfView()
     {
