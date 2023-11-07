@@ -9,20 +9,35 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 5f8da8ed7a1a67d4096c1b694060bfd0
   - enabled: 1
-    path: Assets/Scenes/LevelSelector.unity
+    path: Assets/Scenes/Level Selector.unity
+    guid: 5c76cba9187cde040b0568ba7179b24c
+  - enabled: 1
+    path: Assets/Scenes/Pre Level 1.unity
     guid: b070a3bd4b7290645aae6e45e8ee2275
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: efd2fe99c6316864c8a65bff4a6c68d8
   - enabled: 1
+    path: Assets/Scenes/Pre Level 2.unity
+    guid: cb630c20f54fe324fbe882eff3ac0f22
+  - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: c4c9211e38ef607468ee265551a36e5b
+  - enabled: 1
+    path: Assets/Scenes/Pre Level 3.unity
+    guid: 09e82cb1dcf5c8f4288765e6fe0b710d
   - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/Pre Level 4.unity
+    guid: 6786bef2280e0ff4a948d3aee94442fb
+  - enabled: 1
     path: Assets/Scenes/Level 4.unity
     guid: 7113414e3c7fe624ca6b12e949c68eb8
+  - enabled: 1
+    path: Assets/Scenes/Pre Level 5.unity
+    guid: 3fe12860d36e6824d9120fde5d970b5f
   - enabled: 1
     path: Assets/Scenes/Level 5.unity
     guid: ca5c9cce66c80d24389ed73fc194e3e4
