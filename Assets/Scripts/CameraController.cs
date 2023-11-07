@@ -21,24 +21,24 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {        
-        if(SceneManager.GetActiveScene().buildIndex == 2 )
+        if(SceneManager.GetActiveScene().buildIndex == 3 )
             {
                 transform.position = new Vector3(20, 18, -15);
 
             }
-        if(SceneManager.GetActiveScene().buildIndex == 3 )
+        if(SceneManager.GetActiveScene().buildIndex == 5 )
             {
                 transform.position = new Vector3(27, 25, -15);
             }
-        if(SceneManager.GetActiveScene().buildIndex == 4 )
+        if(SceneManager.GetActiveScene().buildIndex == 7 )
             {
                 // CreatePeople(100);
             }
-        if(SceneManager.GetActiveScene().buildIndex == 5)
+        if(SceneManager.GetActiveScene().buildIndex == 9)
             {
                 // CreatePeople(100);
             }
-        if(SceneManager.GetActiveScene().buildIndex == 6)
+        if(SceneManager.GetActiveScene().buildIndex == 11)
             {
                 // CreatePeople(150);
             }
@@ -86,32 +86,32 @@ public class CameraController : MonoBehaviour
             Camera.main.orthographicSize -= scroll * scrollSpeed * 100f * Time.deltaTime;
 
 
-            if(SceneManager.GetActiveScene().buildIndex == 2 )
+            if(SceneManager.GetActiveScene().buildIndex == 3 )
                 {
                     pos.x = Mathf.Clamp(pos.x, 15, 40);
                     pos.y = Mathf.Clamp(pos.y, 16, 70);
                     Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 7, 12);
 
                 }
-            if(SceneManager.GetActiveScene().buildIndex == 3 )
+            if(SceneManager.GetActiveScene().buildIndex == 5 )
                 {
                     pos.x = Mathf.Clamp(pos.x, 15, 40);
                     pos.y = Mathf.Clamp(pos.y, -10, 60);
                     Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 7, 15);
                 }
-            if(SceneManager.GetActiveScene().buildIndex == 4 )
+            if(SceneManager.GetActiveScene().buildIndex == 7 )
                 {
                     pos.x = Mathf.Clamp(pos.x, 0, 60);
                     pos.y = Mathf.Clamp(pos.y, 0, 40);
                     Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 3, 16);
                 }
-            if(SceneManager.GetActiveScene().buildIndex == 5)
+            if(SceneManager.GetActiveScene().buildIndex == 9)
                 {
                     pos.x = Mathf.Clamp(pos.x, -10, 60);
                     pos.y = Mathf.Clamp(pos.y, 0, 55);
                     Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 10, 30);
                 }
-            if(SceneManager.GetActiveScene().buildIndex == 6)
+            if(SceneManager.GetActiveScene().buildIndex == 11)
                 {
                     pos.x = Mathf.Clamp(pos.x, -30, 70);
                     pos.y = Mathf.Clamp(pos.y, -15, 65);

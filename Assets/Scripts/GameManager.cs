@@ -57,23 +57,23 @@ public class GameManager : MonoBehaviour
     {
          Debug.Log(SceneManager.GetActiveScene().buildIndex);
         SpawnPrez();
-        if(SceneManager.GetActiveScene().buildIndex == 2 )
+        if(SceneManager.GetActiveScene().buildIndex == 3 )
         {
             CreatePeople(20);
         }
-        if(SceneManager.GetActiveScene().buildIndex == 3 )
+        if(SceneManager.GetActiveScene().buildIndex == 5 )
         {
             CreatePeople(100);
         }
-        if(SceneManager.GetActiveScene().buildIndex == 4 )
+        if(SceneManager.GetActiveScene().buildIndex == 7 )
         {
             CreatePeople(200);
         }
-        if(SceneManager.GetActiveScene().buildIndex == 5)
+        if(SceneManager.GetActiveScene().buildIndex == 9)
         {
             CreatePeople(200);
         }
-        if(SceneManager.GetActiveScene().buildIndex == 6)
+        if(SceneManager.GetActiveScene().buildIndex == 11)
         {
             CreatePeople(300);
         }

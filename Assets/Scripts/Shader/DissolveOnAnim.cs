@@ -18,23 +18,23 @@ public class DissolveOnAnim : StateMachineBehaviour
         int numberOfObjectsToLeave = 0;
 
         // Dissolve random objects
-        if(SceneManager.GetActiveScene().buildIndex == 2 )
+        if(SceneManager.GetActiveScene().buildIndex == 3 )
             {
                 numberOfObjectsToLeave = 10;
             }
-        if(SceneManager.GetActiveScene().buildIndex == 3 )
+        if(SceneManager.GetActiveScene().buildIndex == 5 )
             {
                 numberOfObjectsToLeave = 30;
             }
-        if(SceneManager.GetActiveScene().buildIndex == 4 )
+        if(SceneManager.GetActiveScene().buildIndex == 7 )
             {
                 numberOfObjectsToLeave = 30;
             }
-        if(SceneManager.GetActiveScene().buildIndex == 5)
+        if(SceneManager.GetActiveScene().buildIndex == 9)
             {
                numberOfObjectsToLeave = 60;
             }
-        if(SceneManager.GetActiveScene().buildIndex == 6)
+        if(SceneManager.GetActiveScene().buildIndex == 11)
             {
                 numberOfObjectsToLeave = 100;
             }
