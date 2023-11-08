@@ -3545,7 +3545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3847575079076565016, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5099340983488095883, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
       propertyPath: m_Layer
@@ -8387,6 +8387,7 @@ GameObject:
   - component: {fileID: 2023755336}
   - component: {fileID: 2023755340}
   - component: {fileID: 2023755341}
+  - component: {fileID: 2023755342}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -8507,6 +8508,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d861523004523e14dba1026281295dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2023755342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023755335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5246733513ce36b4a85d6933cd56f75b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  tmpProText: {fileID: 1424593606}
+  delayBeforeStart: 0
+  timeBtwChars: 0.3
+  leadingChar: 
+  leadingCharBeforeDelay: 0
+  startOnEnable: 1
+  clearAtStart: 0
+  startOnCollision: 0
+  collisionExitOptions: 0
 --- !u!1 &2093592339
 GameObject:
   m_ObjectHideFlags: 0
