@@ -2694,7 +2694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3847575079076565016, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5099340983488095883, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
       propertyPath: m_Layer
@@ -16179,6 +16179,12 @@ MonoBehaviour:
   tilemapCollider: {fileID: 0}
   floorTilemap: {fileID: 1182087486}
   wallTilemap: {fileID: 698259762}
+  sceneSprites:
+  - {fileID: 21300000, guid: e6c009a7c1c6656409139044949470c4, type: 3}
+  - {fileID: 21300000, guid: 84068334b460dce43a827a1a51de4160, type: 3}
+  - {fileID: 21300000, guid: 839ddec4603fe3c4aa945a07da2d6b8c, type: 3}
+  - {fileID: 21300000, guid: fa18b3a70ba42a04aa0c82cb598f53dc, type: 3}
+  - {fileID: 21300000, guid: a0afc0528734ab341abd423d660d6a21, type: 3}
 --- !u!4 &2122003560
 Transform:
   m_ObjectHideFlags: 0

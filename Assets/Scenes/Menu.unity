@@ -3634,7 +3634,7 @@ MonoBehaviour:
   text: {fileID: 0}
   tmpProText: {fileID: 1951987910}
   delayBeforeStart: 0
-  timeBtwChars: 0.3
+  timeBtwChars: 0.15
   leadingChar: '-'
   leadingCharBeforeDelay: 0
   startOnEnable: 1
@@ -3678,7 +3678,7 @@ MonoBehaviour:
   text: {fileID: 0}
   tmpProText: {fileID: 442964784}
   delayBeforeStart: 0
-  timeBtwChars: 0.5
+  timeBtwChars: 0.15
   leadingChar: '-'
   leadingCharBeforeDelay: 0
   startOnEnable: 0

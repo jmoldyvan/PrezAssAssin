@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public Tilemap wallTilemap;
     private int lostHeartsCount = 0;
     private PlayerDeath playerDeathScript;
+    [SerializeField] public Sprite[] sceneSprites;
+    
 
     private void Awake()
     {
@@ -137,6 +139,9 @@ public class GameManager : MonoBehaviour
     // Function to spawn a single Prez object// Function to spawn a single Prez object
     void SpawnPrez()
     {
+        
+        GameObject prezInstance = null;
+Debug.Log(prezInstance);
         for (int i = 0; i < 1; i++)  // We only want to spawn one Prez
         {
             Vector3Int randomTilePosition = new Vector3Int(
@@ -148,14 +153,33 @@ public class GameManager : MonoBehaviour
             if (floorTilemap.HasTile(randomTilePosition) && !wallTilemap.HasTile(randomTilePosition))
             {
                 Vector3 spawnPosition = floorTilemap.GetCellCenterWorld(randomTilePosition);
-                Instantiate(Prez, spawnPosition, Quaternion.identity);
-                return;  // Exit the loop once the Prez is spawned
-            }
-            else
-            {
-                i--;  // Decrement i to try again
+                prezInstance = Instantiate(Prez, spawnPosition, Quaternion.identity);
+               Debug.Log($"Prez instantiated at position: {spawnPosition}");
+                break;  // Exit the loop once the Prez is spawned
             }
         }
+
+if (prezInstance != null)
+{
+    Debug.Log("Prez instance is not null");
+    SpriteRenderer spriteRenderer = prezInstance.GetComponent<SpriteRenderer>();
+    if (spriteRenderer != null)
+    {
+        Debug.Log("SpriteRenderer found");
+        if (spriteRenderer.sprite == null)
+        {
+            Debug.Log("SpriteRenderer sprite is null");
+        }
+    }
+    else
+    {
+        Debug.Log("SpriteRenderer component not found on the instantiated Prez");
+    }
+}
+else
+{
+    Debug.Log("Prez instance is null after instantiation");
+}
     }
 
     public void LoseHeart(){
