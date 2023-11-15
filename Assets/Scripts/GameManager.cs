@@ -20,13 +20,16 @@ public class GameManager : MonoBehaviour
     private int lostHeartsCount = 0;
     private PlayerDeath playerDeathScript;
     [SerializeField] public Sprite[] sceneSprites;
-    
+        public PrezSpawner prezSpawner;
+
+    private Vector3Int floorTilemapRange = new Vector3Int(-50, 150, 0);
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {
@@ -58,7 +61,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
          Debug.Log(SceneManager.GetActiveScene().buildIndex);
-        SpawnPrez();
+        GameObject prezInstance = prezSpawner.SpawnPrez(floorTilemapRange, floorTilemap, wallTilemap);
         if(SceneManager.GetActiveScene().buildIndex == 3 )
         {
             CreatePeople(20);
@@ -137,50 +140,50 @@ public class GameManager : MonoBehaviour
     }
 
     // Function to spawn a single Prez object// Function to spawn a single Prez object
-    void SpawnPrez()
-    {
+//     void SpawnPrez()
+//     {
         
-        GameObject prezInstance = null;
-Debug.Log(prezInstance);
-        for (int i = 0; i < 1; i++)  // We only want to spawn one Prez
-        {
-            Vector3Int randomTilePosition = new Vector3Int(
-                Random.Range(-50, 150),
-                Random.Range(-50, 150),
-                0
-            );
+//         GameObject prezInstance = null;
+// Debug.Log(prezInstance);
+//         for (int i = 0; i < 1; i++)  // We only want to spawn one Prez
+//         {
+//             Vector3Int randomTilePosition = new Vector3Int(
+//                 Random.Range(-50, 150),
+//                 Random.Range(-50, 150),
+//                 0
+//             );
 
-            if (floorTilemap.HasTile(randomTilePosition) && !wallTilemap.HasTile(randomTilePosition))
-            {
-                Vector3 spawnPosition = floorTilemap.GetCellCenterWorld(randomTilePosition);
-                prezInstance = Instantiate(Prez, spawnPosition, Quaternion.identity);
-               Debug.Log($"Prez instantiated at position: {spawnPosition}");
-                break;  // Exit the loop once the Prez is spawned
-            }
-        }
+//             if (floorTilemap.HasTile(randomTilePosition) && !wallTilemap.HasTile(randomTilePosition))
+//             {
+//                 Vector3 spawnPosition = floorTilemap.GetCellCenterWorld(randomTilePosition);
+//                 prezInstance = Instantiate(Prez, spawnPosition, Quaternion.identity);
+//                Debug.Log($"Prez instantiated at position: {spawnPosition}");
+//                 break;  // Exit the loop once the Prez is spawned
+//             }
+//         }
 
-if (prezInstance != null)
-{
-    Debug.Log("Prez instance is not null");
-    SpriteRenderer spriteRenderer = prezInstance.GetComponent<SpriteRenderer>();
-    if (spriteRenderer != null)
-    {
-        Debug.Log("SpriteRenderer found");
-        if (spriteRenderer.sprite == null)
-        {
-            Debug.Log("SpriteRenderer sprite is null");
-        }
-    }
-    else
-    {
-        Debug.Log("SpriteRenderer component not found on the instantiated Prez");
-    }
-}
-else
-{
-    Debug.Log("Prez instance is null after instantiation");
-}
-    }
+// if (prezInstance != null)
+// {
+//     Debug.Log("Prez instance is not null");
+//     SpriteRenderer spriteRenderer = prezInstance.GetComponent<SpriteRenderer>();
+//     if (spriteRenderer != null)
+//     {
+//         Debug.Log("SpriteRenderer found");
+//         if (spriteRenderer.sprite == null)
+//         {
+//             Debug.Log("SpriteRenderer sprite is null");
+//         }
+//     }
+//     else
+//     {
+//         Debug.Log("SpriteRenderer component not found on the instantiated Prez");
+//     }
+// }
+// else
+// {
+//     Debug.Log("Prez instance is null after instantiation");
+// }
+//     }
 
     public void LoseHeart(){
         Debug.Log("LoseHeart called in GameManager.");
