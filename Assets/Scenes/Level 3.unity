@@ -36832,7 +36832,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 839ddec4603fe3c4aa945a07da2d6b8c, type: 3}
   - {fileID: 21300000, guid: fa18b3a70ba42a04aa0c82cb598f53dc, type: 3}
   - {fileID: 21300000, guid: a0afc0528734ab341abd423d660d6a21, type: 3}
-  prezSpawner: {fileID: 0}
+  prezSpawner: {fileID: 172784759}
 --- !u!4 &2090139577
 Transform:
   m_ObjectHideFlags: 0
