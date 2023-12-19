@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
     private int lostHeartsCount = 0;
     private PlayerDeath playerDeathScript;
     [SerializeField] public Sprite[] sceneSprites;
+    [SerializeField] public Sprite[] tinymansceneSprites;
         public PrezSpawner prezSpawner;
+        public TinyManSpawner tinyManSpawner;
 
     private Vector3Int floorTilemapRange = new Vector3Int(-50, 150, 0);
 
@@ -34,6 +36,37 @@ public class GameManager : MonoBehaviour
         else if (Instance != this)
         {
             Destroy(gameObject);
+        }
+    }
+
+        void Start()
+    {
+        SpawnPrez();
+        SpawnTinyManBasedOnScene();
+    }
+
+    private void SpawnPrez()
+    {
+        GameObject prezInstance = prezSpawner.SpawnPrez(floorTilemapRange, floorTilemap, wallTilemap);
+    }
+
+    private void SpawnTinyManBasedOnScene()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int numberOfPeople = 0;
+
+        switch(sceneIndex)
+        {
+            case 3: numberOfPeople = 20; break;
+            case 5: numberOfPeople = 100; break;
+            case 7:numberOfPeople = 200; break;
+            case 9: numberOfPeople = 200; break;
+            case 11: numberOfPeople = 300; break;
+        }
+
+        if(numberOfPeople > 0)
+        {
+            tinyManSpawner.SpawnTinyMan(numberOfPeople, floorTilemapRange, floorTilemap, wallTilemap);
         }
     }
 
@@ -58,72 +91,85 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-         Debug.Log(SceneManager.GetActiveScene().buildIndex);
-        GameObject prezInstance = prezSpawner.SpawnPrez(floorTilemapRange, floorTilemap, wallTilemap);
-        if(SceneManager.GetActiveScene().buildIndex == 3 )
-        {
-            CreatePeople(20);
-        }
-        if(SceneManager.GetActiveScene().buildIndex == 5 )
-        {
-            CreatePeople(100);
-        }
-        if(SceneManager.GetActiveScene().buildIndex == 7 )
-        {
-            CreatePeople(200);
-        }
-        if(SceneManager.GetActiveScene().buildIndex == 9)
-        {
-            CreatePeople(200);
-        }
-        if(SceneManager.GetActiveScene().buildIndex == 11)
-        {
-            CreatePeople(300);
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+    // void Start()
+    // {
+    //      Debug.Log(SceneManager.GetActiveScene().buildIndex);
+    //     GameObject prezInstance = prezSpawner.SpawnPrez(floorTilemapRange, floorTilemap, wallTilemap);
+    //     if(SceneManager.GetActiveScene().buildIndex == 3 )
+    //     {
+    //         GameObject TinyManInstance = tinyManSpawner.SpawnTinyMan(20, floorTilemapRange, floorTilemap, wallTilemap);
+    //     }
+    //     if(SceneManager.GetActiveScene().buildIndex == 5 )
+    //     {
+    //         GameObject TinyManInstance = tinyManSpawner.SpawnTinyMan(100, floorTilemapRange, floorTilemap, wallTilemap);
+    //     }
+    //     if(SceneManager.GetActiveScene().buildIndex == 7 )
+    //     {
+    //         GameObject TinyManInstance = tinyManSpawner.SpawnTinyMan(200, floorTilemapRange, floorTilemap, wallTilemap);
+    //         // CreatePeople(200);
+    //     }
+    //     if(SceneManager.GetActiveScene().buildIndex == 9)
+    //     {
+    //         GameObject TinyManInstance = tinyManSpawner.SpawnTinyMan(200, floorTilemapRange, floorTilemap, wallTilemap);
+    //     }
+    //     if(SceneManager.GetActiveScene().buildIndex == 11)
+    //     {
+    //         GameObject TinyManInstance = tinyManSpawner.SpawnTinyMan(300, floorTilemapRange, floorTilemap, wallTilemap);
+    //     }
         
 
-    }
+    // }
 
-    public void CreatePeople(int numberOfPeople)
-    {
-        GameObject TinyMenSpawnBoundry = GameObject.Find("TinyMenSpawnBoundry");
-        // Player spawn boundry
+//     public void CreatePeople(int numberOfPeople)
+//     {
+//         GameObject TinyMenSpawnBoundry = GameObject.Find("TinyMenSpawnBoundry");
+//         // Player spawn boundry
 
-        // 1. Locate the TinyMenSpawnBoundry GameObject
-        Transform TinyMenSpawnBoundryTransform = TinyMenSpawnBoundry.transform.Find("TinyMenSpawnBoundry");
-        Debug.Log(TinyMenSpawnBoundryTransform);
+//         // 1. Locate the TinyMenSpawnBoundry GameObject
+//         Transform TinyMenSpawnBoundryTransform = TinyMenSpawnBoundry.transform.Find("TinyMenSpawnBoundry");
+//         Debug.Log(TinyMenSpawnBoundryTransform);
         
-        // 2. Find the 4 child objects
+//         // 2. Find the 4 child objects
 
-        Transform TinyMenTopLeft = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryTopLeft");
-        Transform TinyMenTopRight = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryTopRight");
+//         Transform TinyMenTopLeft = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryTopLeft");
+//         Transform TinyMenTopRight = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryTopRight");
         
-        // 3. Retrieve the x and y coordinates
-        int TinyMenSpawnXmin = Mathf.FloorToInt(TinyMenTopLeft.position.x);
-        int TinyMenSpawnXmax = Mathf.CeilToInt(TinyMenTopRight.position.x);
-        int TinyMenSpawnYmax = Mathf.CeilToInt(TinyMenTopLeft.position.y);
+//         // 3. Retrieve the x and y coordinates
+//         int TinyMenSpawnXmin = Mathf.FloorToInt(TinyMenTopLeft.position.x);
+//         int TinyMenSpawnXmax = Mathf.CeilToInt(TinyMenTopRight.position.x);
+//         int TinyMenSpawnYmax = Mathf.CeilToInt(TinyMenTopLeft.position.y);
 
-        for (int i = 0; i < numberOfPeople; i++)
-        {
-            Vector3Int randomTilePosition = new Vector3Int(
-                Random.Range(TinyMenSpawnXmin, TinyMenSpawnXmax + 1),
-                Random.Range(-50, TinyMenSpawnYmax + 1),
-                0
-            );
+//         for (int i = 0; i < numberOfPeople; i++)
+//         {
+//             Vector3Int randomTilePosition = new Vector3Int(
+//                 Random.Range(TinyMenSpawnXmin, TinyMenSpawnXmax + 1),
+//                 Random.Range(-50, TinyMenSpawnYmax + 1),
+//                 0
+//             );
 
-            if (floorTilemap.HasTile(randomTilePosition) && !wallTilemap.HasTile(randomTilePosition))
-            {
-                Vector3 spawnPosition = floorTilemap.GetCellCenterWorld(randomTilePosition);
-                Instantiate(TinyMan, spawnPosition, Quaternion.identity);
-            }
-            else
-            {
-                i--;  // Decrement i to try again
-            }
-        }
-}
+//             if (floorTilemap.HasTile(randomTilePosition) && !wallTilemap.HasTile(randomTilePosition))
+//             {
+//                 Vector3 spawnPosition = floorTilemap.GetCellCenterWorld(randomTilePosition);
+//                 Instantiate(TinyMan, spawnPosition, Quaternion.identity);
+//             }
+//             else
+//             {
+//                 i--;  // Decrement i to try again
+//             }
+//         }
+// }
 
     public void ShuffleList<T>(IList<T> list)
     {
