@@ -13,7 +13,7 @@ public class TinyManSpawner : MonoBehaviour
         {
             Vector3Int randomTilePosition = new Vector3Int(
                 Random.Range(floorTilemapRange.x, floorTilemapRange.y),
-                Random.Range(floorTilemapRange.z, floorTilemapRange.y), // Adjusted to use the range.y for the y-coordinate upper limit
+                Random.Range(floorTilemapRange.x, floorTilemapRange.y), // Adjusted to use the range.y for the y-coordinate upper limit
                 0
             );
 

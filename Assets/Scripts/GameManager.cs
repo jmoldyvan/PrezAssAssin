@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         public PrezSpawner prezSpawner;
         public TinyManSpawner tinyManSpawner;
 
-    private Vector3Int floorTilemapRange = new Vector3Int(-50, 150, 0);
+    private Vector3Int floorTilemapRange = new Vector3Int(-90, 250, 0);
 
     private void Awake()
     {
