@@ -5,6 +5,14 @@ public class Phase2ButtonHandler : MonoBehaviour
     public void OnPhase2ButtonPressed()
     {
         GameObject Player = GameObject.FindGameObjectWithTag("Player");
+        GameObject actualbutton = GameObject.FindGameObjectWithTag("phasebutton");
+
+        if (actualbutton != null)
+        {
+            // Destroy the "actualbutton" game object
+            Destroy(actualbutton);
+        }
+
         PlayerMovement PlayerMovementScript = Player.GetComponent<PlayerMovement>();
         PlayerMovementScript.ToggleMovement(true);
 

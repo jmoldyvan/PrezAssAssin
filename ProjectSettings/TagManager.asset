@@ -15,6 +15,7 @@ TagManager:
   - GameOverButtons
   - NextLevelButtons
   - MainMenuButton
+  - phasebutton
   layers:
   - Default
   - TransparentFX
