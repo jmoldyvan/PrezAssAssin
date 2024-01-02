@@ -662,6 +662,8 @@ GameObject:
   - component: {fileID: 407182088816429343}
   - component: {fileID: 3607187346651281503}
   - component: {fileID: 8099061938526788765}
+  - component: {fileID: 2768916291061104248}
+  - component: {fileID: 4859880780273652533}
   m_Layer: 0
   m_Name: ReadyForPhase2
   m_TagString: Untagged
@@ -798,6 +800,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51c4e66260576f4cadc8a7a5fd0b8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &2768916291061104248
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100018346882236024}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &4859880780273652533
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100018346882236024}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f68e7acef6b6ec842be23882e7fac41e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7136116984314468735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 0}
-  phaseTransition: {fileID: 0}
+  phaseTransition: {fileID: 4859880780273652533}
   transitionTime: 1
   phaseTransitionTime: 3
 --- !u!1 &8221815857018266526
@@ -1379,7 +1413,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
