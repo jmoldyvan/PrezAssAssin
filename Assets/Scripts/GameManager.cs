@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
         public PrezSpawner prezSpawner;
         public TinyManSpawner tinyManSpawner;
 
+        public GameObject Phase2Button;
+
     private Vector3Int floorTilemapRange = new Vector3Int(-90, 250, 0);
 
     private void Awake()
@@ -31,7 +33,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-        void Start()
+       public void Start()
     {
         SpawnPrez();
         SpawnTinyManBasedOnScene();
@@ -93,84 +94,6 @@ public class GameManager : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-
-
-    // void Start()
-    // {
-    //      Debug.Log(SceneManager.GetActiveScene().buildIndex);
-    //     GameObject prezInstance = prezSpawner.SpawnPrez(floorTilemapRange, floorTilemap, wallTilemap);
-    //     if(SceneManager.GetActiveScene().buildIndex == 3 )
-    //     {
-    //         GameObject TinyManInstance = tinyManSpawner.SpawnTinyMan(20, floorTilemapRange, floorTilemap, wallTilemap);
-    //     }
-    //     if(SceneManager.GetActiveScene().buildIndex == 5 )
-    //     {
-    //         GameObject TinyManInstance = tinyManSpawner.SpawnTinyMan(100, floorTilemapRange, floorTilemap, wallTilemap);
-    //     }
-    //     if(SceneManager.GetActiveScene().buildIndex == 7 )
-    //     {
-    //         GameObject TinyManInstance = tinyManSpawner.SpawnTinyMan(200, floorTilemapRange, floorTilemap, wallTilemap);
-    //         // CreatePeople(200);
-    //     }
-    //     if(SceneManager.GetActiveScene().buildIndex == 9)
-    //     {
-    //         GameObject TinyManInstance = tinyManSpawner.SpawnTinyMan(200, floorTilemapRange, floorTilemap, wallTilemap);
-    //     }
-    //     if(SceneManager.GetActiveScene().buildIndex == 11)
-    //     {
-    //         GameObject TinyManInstance = tinyManSpawner.SpawnTinyMan(300, floorTilemapRange, floorTilemap, wallTilemap);
-    //     }
-        
-
-    // }
-
-//     public void CreatePeople(int numberOfPeople)
-//     {
-//         GameObject TinyMenSpawnBoundry = GameObject.Find("TinyMenSpawnBoundry");
-//         // Player spawn boundry
-
-//         // 1. Locate the TinyMenSpawnBoundry GameObject
-//         Transform TinyMenSpawnBoundryTransform = TinyMenSpawnBoundry.transform.Find("TinyMenSpawnBoundry");
-//         Debug.Log(TinyMenSpawnBoundryTransform);
-        
-//         // 2. Find the 4 child objects
-
-//         Transform TinyMenTopLeft = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryTopLeft");
-//         Transform TinyMenTopRight = TinyMenSpawnBoundryTransform.Find("TinyMenBoundryTopRight");
-        
-//         // 3. Retrieve the x and y coordinates
-//         int TinyMenSpawnXmin = Mathf.FloorToInt(TinyMenTopLeft.position.x);
-//         int TinyMenSpawnXmax = Mathf.CeilToInt(TinyMenTopRight.position.x);
-//         int TinyMenSpawnYmax = Mathf.CeilToInt(TinyMenTopLeft.position.y);
-
-//         for (int i = 0; i < numberOfPeople; i++)
-//         {
-//             Vector3Int randomTilePosition = new Vector3Int(
-//                 Random.Range(TinyMenSpawnXmin, TinyMenSpawnXmax + 1),
-//                 Random.Range(-50, TinyMenSpawnYmax + 1),
-//                 0
-//             );
-
-//             if (floorTilemap.HasTile(randomTilePosition) && !wallTilemap.HasTile(randomTilePosition))
-//             {
-//                 Vector3 spawnPosition = floorTilemap.GetCellCenterWorld(randomTilePosition);
-//                 Instantiate(TinyMan, spawnPosition, Quaternion.identity);
-//             }
-//             else
-//             {
-//                 i--;  // Decrement i to try again
-//             }
-//         }
-// }
-
     public void ShuffleList<T>(IList<T> list)
     {
         var rng = new System.Random();
@@ -184,52 +107,6 @@ public class GameManager : MonoBehaviour
             list[n] = value;
         }
     }
-
-    // Function to spawn a single Prez object// Function to spawn a single Prez object
-//     void SpawnPrez()
-//     {
-        
-//         GameObject prezInstance = null;
-// Debug.Log(prezInstance);
-//         for (int i = 0; i < 1; i++)  // We only want to spawn one Prez
-//         {
-//             Vector3Int randomTilePosition = new Vector3Int(
-//                 Random.Range(-50, 150),
-//                 Random.Range(-50, 150),
-//                 0
-//             );
-
-//             if (floorTilemap.HasTile(randomTilePosition) && !wallTilemap.HasTile(randomTilePosition))
-//             {
-//                 Vector3 spawnPosition = floorTilemap.GetCellCenterWorld(randomTilePosition);
-//                 prezInstance = Instantiate(Prez, spawnPosition, Quaternion.identity);
-//                Debug.Log($"Prez instantiated at position: {spawnPosition}");
-//                 break;  // Exit the loop once the Prez is spawned
-//             }
-//         }
-
-// if (prezInstance != null)
-// {
-//     Debug.Log("Prez instance is not null");
-//     SpriteRenderer spriteRenderer = prezInstance.GetComponent<SpriteRenderer>();
-//     if (spriteRenderer != null)
-//     {
-//         Debug.Log("SpriteRenderer found");
-//         if (spriteRenderer.sprite == null)
-//         {
-//             Debug.Log("SpriteRenderer sprite is null");
-//         }
-//     }
-//     else
-//     {
-//         Debug.Log("SpriteRenderer component not found on the instantiated Prez");
-//     }
-// }
-// else
-// {
-//     Debug.Log("Prez instance is null after instantiation");
-// }
-//     }
 
     public void LoseHeart(){
         Debug.Log("LoseHeart called in GameManager.");
@@ -296,17 +173,23 @@ public class GameManager : MonoBehaviour
             cameraController.StartTransitionPanning();
             cameraController.MoveToTarget(new Vector3(33, 23, Camera.main.transform.position.z));
         }  
+                Vector3 Phase2ButtonPosition = new Vector3(25f, 25f, -6); 
+        Quaternion rotation = Quaternion.identity;
+        GameObject createPhase2Button = Instantiate(Phase2Button, Phase2ButtonPosition, rotation);
         StartCoroutine(ActivateButtonsAfterDelay(5f));
 
     }
 
         IEnumerator ActivateButtonsAfterDelay(float delay)
     {
+        // Vector3 Phase2ButtonPosition = new Vector3(25f, 25f, -6); 
+        // Quaternion rotation = Quaternion.identity;
+        // GameObject createPhase2Button = Instantiate(Phase2Button, Phase2ButtonPosition, rotation);
         // Wait for the specified delay
         yield return new WaitForSeconds(delay);
 
         // Find the Phase2Button 1 object
-        GameObject phase2Button1 = GameObject.Find("Phase2Button 1");
+        GameObject phase2Button1 = GameObject.Find("Phase2Button 1(Clone)");
         if (phase2Button1 != null)
         {
             // Access its child named Phase2Button
@@ -328,7 +211,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-        // maybe play animation of player dying/ destroy player object/ StartTransitionPanning() camera 
-        // instantiate try again button
-        // instantiate main menu button
 }

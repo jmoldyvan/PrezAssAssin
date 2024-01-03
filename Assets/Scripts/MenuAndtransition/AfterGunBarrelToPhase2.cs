@@ -94,6 +94,23 @@ public class AfterGunBarrelToPhase2 : StateMachineBehaviour
         GameObject createDoor = Instantiate(ExitDoor1, exitDoorPosition, rotation);
         GameObject createPlayer = Instantiate(Player, playerPosition, rotation);
         GameObject createPhase2Button = Instantiate(Phase2Button, Phase2ButtonPosition, rotation);
+        GameObject phase2Button1 = GameObject.Find("Phase2Button 1(Clone)");
+        if (phase2Button1 != null)
+        {
+            // Access its child named Phase2Button
+            Transform phase2Button = phase2Button1.transform.Find("Phase2Button");
+            if (phase2Button != null)
+            {
+                // Get all children with the tag GameOverButtons and activate them
+                foreach (Transform child in phase2Button)
+                {
+                    if (child.CompareTag("ReadyPhase2"))
+                    {
+                        child.gameObject.SetActive(true);
+                    }
+                }
+            }
+        }
     }
 
     public void SetCameraToMiddleOfLevel()

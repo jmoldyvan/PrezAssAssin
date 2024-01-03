@@ -666,11 +666,11 @@ GameObject:
   - component: {fileID: 4859880780273652533}
   m_Layer: 0
   m_Name: ReadyForPhase2
-  m_TagString: Untagged
+  m_TagString: ReadyPhase2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8325761130783431565
 RectTransform:
   m_ObjectHideFlags: 0

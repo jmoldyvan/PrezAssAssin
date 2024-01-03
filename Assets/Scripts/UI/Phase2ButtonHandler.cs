@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Phase2ButtonHandler : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class Phase2ButtonHandler : MonoBehaviour
             Destroy(actualbutton);
         }
 
-        PlayerMovement PlayerMovementScript = Player.GetComponent<PlayerMovement>();
-        PlayerMovementScript.ToggleMovement(true);
+        // Start the coroutine to enable PlayerMovement after 2 seconds
+        StartCoroutine(EnablePlayerMovementAfterDelay(Player, 2f));
 
         GameObject[] allTinyMen = GameObject.FindGameObjectsWithTag("TinyMan");
 
@@ -25,6 +26,19 @@ public class Phase2ButtonHandler : MonoBehaviour
             {
                 anim.SetTrigger("StartAnimation");
             }
+        }
+    }
+
+    IEnumerator EnablePlayerMovementAfterDelay(GameObject player, float delay)
+    {
+        // Wait for the specified delay
+        yield return new WaitForSeconds(3f);
+
+        // Enable PlayerMovement
+        PlayerMovement PlayerMovementScript = player.GetComponent<PlayerMovement>();
+        if (PlayerMovementScript != null)
+        {
+            PlayerMovementScript.ToggleMovement(true);
         }
     }
 }

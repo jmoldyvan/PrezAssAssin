@@ -16,6 +16,7 @@ TagManager:
   - NextLevelButtons
   - MainMenuButton
   - phasebutton
+  - ReadyPhase2
   layers:
   - Default
   - TransparentFX
