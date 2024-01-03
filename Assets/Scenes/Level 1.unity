@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2643,7 +2643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3847575079076565016, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5099340983488095883, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
       propertyPath: m_Layer
@@ -16245,6 +16245,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a28b6657d3cfafe4db071e5e9c02fe19, type: 3}
   prezSpawner: {fileID: 1291091356}
   tinyManSpawner: {fileID: 1291091355}
+  Phase2Button: {fileID: 7384720331686068238, guid: 31db7424f240871409e0a2f0b69f19fb, type: 3}
 --- !u!4 &2122003560
 Transform:
   m_ObjectHideFlags: 0

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1702410862726115153}
   - component: {fileID: 8179586444396935255}
   - component: {fileID: 2194015221871829265}
-  - component: {fileID: -7076429497185510579}
   - component: {fileID: -9107515742237796458}
   - component: {fileID: 6373871931346015219}
   - component: {fileID: -5698542686231480773}
@@ -4908,22 +4907,6 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 8179586444396935255}
   allowMovement: 0
---- !u!58 &-7076429497185510579
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4857556211938758036}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.56
 --- !u!114 &-9107515742237796458
 MonoBehaviour:
   m_ObjectHideFlags: 0

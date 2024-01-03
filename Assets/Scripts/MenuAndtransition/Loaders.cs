@@ -23,6 +23,10 @@ public class Loaders : MonoBehaviour
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 1));
     }
+    public void ResetLevel()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
+    }
     public void QuitGame()
     {
         
