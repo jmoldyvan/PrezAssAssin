@@ -150,8 +150,10 @@ public class GameManager : MonoBehaviour
         {
             playerDeathScript = PlayerObject.GetComponent<PlayerDeath>();
             PlayerObject.GetComponent<Animator>().Play("PlayerDeath");
-            playerDeathScript.PlayerDeathFunction();   
-
+            playerDeathScript.PlayerDeathFunction(); 
+                            Vector3 Phase2ButtonPosition = new Vector3(25f, 25f, -6);   
+        Quaternion rotation = Quaternion.identity;
+        GameObject createPhase2Button = Instantiate(Phase2Button, Phase2ButtonPosition, rotation);
             StartCoroutine(ActivateButtonsAfterDelay(5f));
         }
 

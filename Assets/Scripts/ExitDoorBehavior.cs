@@ -14,6 +14,8 @@ public class ExitDoorBehavior : MonoBehaviour
     public Transform buttonsSpawnPoint;
     private float originalFixedDeltaTime;
 
+            public GameObject Phase2Button;
+
     // This method could be used to initiate slow motion.
     public void DoSlowMotion(float slowDownFactor)
     {
@@ -35,6 +37,9 @@ public class ExitDoorBehavior : MonoBehaviour
             PlayerMovementScript.ToggleMovement(false);
             Player = other.gameObject;  // Set Player to the colliding object
             DoSlowMotion(0.1f);  // Initiating slow motion.
+                            Vector3 Phase2ButtonPosition = new Vector3(25f, 25f, -6); 
+                    Quaternion rotation = Quaternion.identity;
+        GameObject createPhase2Button = Instantiate(Phase2Button, Phase2ButtonPosition, rotation);
             StartCoroutine(ShrinkPlayer());
             PauseGame();
         }
@@ -112,7 +117,7 @@ public class ExitDoorBehavior : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         // Find the Phase2Button 1 object
-        GameObject phase2Button1 = GameObject.Find("Phase2Button 1");
+        GameObject phase2Button1 = GameObject.Find("Phase2Button 1(Clone)");
         if (phase2Button1 != null)
         {
             // Access its child named Phase2Button
@@ -126,7 +131,7 @@ public class ExitDoorBehavior : MonoBehaviour
                     {
                         child.gameObject.SetActive(true);
                     }
-                    if (child.CompareTag("MainMenuButton"))
+                    if (child.CompareTag("GameOverButtons"))
                     {
                         child.gameObject.SetActive(true);
                     }

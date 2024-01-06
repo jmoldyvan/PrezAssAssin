@@ -225,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 0}
   phaseTransition: {fileID: 737491786771423443}
+  resetTransition: {fileID: 737491786771423443}
   transitionTime: 1
   phaseTransitionTime: 3
 --- !u!1 &5099340983488095883

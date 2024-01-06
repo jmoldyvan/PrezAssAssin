@@ -7,6 +7,7 @@ public class Loaders : MonoBehaviour
 {
     public Animator transition;
     public Animator phaseTransition;
+    public Animator resetTransition;
     public float transitionTime = 1f;
     public float phaseTransitionTime = 3f;
 
@@ -16,7 +17,6 @@ public class Loaders : MonoBehaviour
     }
     public void SelectLevelSelectScreen()
     {
-        
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void BackToMainMenu()
@@ -26,6 +26,11 @@ public class Loaders : MonoBehaviour
     public void ResetLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
+        StartCoroutine(TransitionPhase());
+    }
+    public void JustTransition()
+    {
+        StartCoroutine(TransitionPhase());
     }
     public void QuitGame()
     {
@@ -42,9 +47,10 @@ public class Loaders : MonoBehaviour
     }
     public IEnumerator TransitionPhase()
     {
-                      
-        yield return new WaitForSeconds(transitionTime);
+        resetTransition.SetTrigger("PhaseTrigger");                      
+        yield return new WaitForSeconds(0f);
         phaseTransition.SetTrigger("PhaseTrigger");
+
     }
 
     public void TransitionPhaseFunction()

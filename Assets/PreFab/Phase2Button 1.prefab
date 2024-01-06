@@ -403,7 +403,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -917,7 +917,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5162883920518313862}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f43b00ee4f50a642acc0b32daba9056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 0}
+  transition: {fileID: 5809930459424330467}
 --- !u!114 &5809930459424330467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,8 +1131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89477d7ec3b1a2445ab9f1201639c553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 0}
+  transition: {fileID: 3521951832171744773}
   phaseTransition: {fileID: 4859880780273652533}
+  resetTransition: {fileID: 3521951832171744773}
   transitionTime: 1
   phaseTransitionTime: 3
 --- !u!1 &7728889598405006828
@@ -1154,7 +1155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4490641974614065932
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1247,7 +1248,7 @@ Animator:
   m_GameObject: {fileID: 7728889598405006828}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2e750bd614195d44bac5fa75bb55089e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 26f4c710b7f5e9d4e8af7258295d1fd6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1379,6 +1380,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 5809930459424330467}
+        m_TargetAssemblyTypeName: Loaders, Assembly-CSharp
+        m_MethodName: JustTransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 5809930459424330467}
         m_TargetAssemblyTypeName: Loaders, Assembly-CSharp
         m_MethodName: SelectLevelSelectScreen
@@ -1513,6 +1526,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 5809930459424330467}
+        m_TargetAssemblyTypeName: Loaders, Assembly-CSharp
+        m_MethodName: JustTransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 4640130426363584969}
         m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
         m_MethodName: Select
