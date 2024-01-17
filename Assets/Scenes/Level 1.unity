@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3189,6 +3189,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &671923894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3847575079076565016, guid: 422414c59dbf1b04ebca2ab726260533, type: 3}
+  m_PrefabInstance: {fileID: 345400516}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &671923897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671923894}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84122c39124a7734d89a25d33a78d28a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prezDeathAnim: {fileID: 0}
 --- !u!1 &698259759
 GameObject:
   m_ObjectHideFlags: 0
@@ -15561,10 +15579,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prezPrefab: {fileID: 8725738589443268455, guid: c360afea26a5d6246b71e1dd7fc61cd9, type: 3}
   sceneSprites:
-  - {fileID: 21300000, guid: e6c009a7c1c6656409139044949470c4, type: 3}
+  - {fileID: 21300000, guid: b37b1c89026e1674e9d82e7fed0b4d3c, type: 3}
   - {fileID: 21300000, guid: 84068334b460dce43a827a1a51de4160, type: 3}
   - {fileID: 21300000, guid: 839ddec4603fe3c4aa945a07da2d6b8c, type: 3}
-  - {fileID: 21300000, guid: e6c009a7c1c6656409139044949470c4, type: 3}
+  - {fileID: 21300000, guid: b37b1c89026e1674e9d82e7fed0b4d3c, type: 3}
   - {fileID: 21300000, guid: a0afc0528734ab341abd423d660d6a21, type: 3}
   - {fileID: 21300000, guid: 84068334b460dce43a827a1a51de4160, type: 3}
   - {fileID: 21300000, guid: a0afc0528734ab341abd423d660d6a21, type: 3}
@@ -17865,7 +17883,7 @@ MonoBehaviour:
   floorTilemap: {fileID: 1182087486}
   wallTilemap: {fileID: 698259762}
   sceneSprites:
-  - {fileID: 21300000, guid: e6c009a7c1c6656409139044949470c4, type: 3}
+  - {fileID: 21300000, guid: b37b1c89026e1674e9d82e7fed0b4d3c, type: 3}
   - {fileID: 21300000, guid: 84068334b460dce43a827a1a51de4160, type: 3}
   - {fileID: 21300000, guid: 839ddec4603fe3c4aa945a07da2d6b8c, type: 3}
   - {fileID: 21300000, guid: fa18b3a70ba42a04aa0c82cb598f53dc, type: 3}

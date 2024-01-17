@@ -17,6 +17,7 @@ TagManager:
   - MainMenuButton
   - phasebutton
   - ReadyPhase2
+  - GameObject
   layers:
   - Default
   - TransparentFX

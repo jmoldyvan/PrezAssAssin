@@ -1,5 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
+using System;
+using Random = UnityEngine.Random;
+using UnityEngine.UI;
+using System.Linq;
+using UnityEngine.SceneManagement;
 public class ClickEventsForShootingTargets : MonoBehaviour
 {
 
@@ -41,7 +47,14 @@ public class ClickEventsForShootingTargets : MonoBehaviour
 
         GameObject prezClone = GameObject.FindGameObjectWithTag("Prez");
         RandomMovement PrezMovement = prezClone.GetComponent<RandomMovement>();
+        
         PrezMovement.TogglePause(true);
+
+        GameObject GameyObby = GameObject.FindGameObjectWithTag("GameObject");
+        PrezAnim PrezKillCam = GameyObby.GetComponent<PrezAnim>();
+                    Debug.LogError(PrezKillCam);
+
+        PrezKillCam.PlayAnimFunction();
 
         CameraController cameraPanToTarget = Camera.main.GetComponent<CameraController>();
         cameraPanToTarget.StartTransitionPanning(); 
