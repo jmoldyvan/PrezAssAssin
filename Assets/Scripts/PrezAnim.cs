@@ -28,7 +28,9 @@ public class PrezAnim : MonoBehaviour
     }
     public void PlayAnimFunction()
     {
-        
+                GameObject prezClone = GameObject.FindGameObjectWithTag("Prez");
+        Animator prezDeathAnim = prezClone.GetComponent<Animator>();
+        prezDeathAnim.enabled = true;
         StartCoroutine(PlayAnim());
     }
 }
