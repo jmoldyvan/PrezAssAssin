@@ -42,9 +42,9 @@ public GameObject SpawnPrez(Vector3Int floorTilemapRange, Tilemap floorTilemap, 
             // Change the sprite for the Prez based on the current scene
 
             SpriteRenderer spriteRenderer = prezInstance.GetComponent<SpriteRenderer>();
-            Debug.LogError(prezInstance.GetComponent<SpriteRenderer>());
+            // Debug.LogError(prezInstance.GetComponent<SpriteRenderer>());
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-            Debug.LogError(sceneIndex);
+            // Debug.LogError(sceneIndex);
 
                 spriteRenderer.sprite = sceneSprites[sceneIndex];
 

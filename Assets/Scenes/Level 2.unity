@@ -8555,6 +8555,7 @@ GameObject:
   - component: {fileID: 734642116}
   - component: {fileID: 734642120}
   - component: {fileID: 734642121}
+  - component: {fileID: 734642122}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: GameObject
@@ -8649,7 +8650,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734642115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9c324169aa79f5b459e527d29e2724b5, type: 2}
   m_CullingMode: 0
@@ -8673,7 +8674,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84122c39124a7734d89a25d33a78d28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prezDeathAnim: {fileID: 734642120}
+--- !u!114 &734642122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734642115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d51954a118e9a44d825d8b0ee2b302b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &786587539
 GameObject:
   m_ObjectHideFlags: 0

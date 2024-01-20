@@ -52,7 +52,7 @@ public class ClickEventsForShootingTargets : MonoBehaviour
 
         GameObject GameyObby = GameObject.FindGameObjectWithTag("GameObject");
         PrezAnim PrezKillCam = GameyObby.GetComponent<PrezAnim>();
-                    Debug.LogError(PrezKillCam);
+        Debug.LogError(PrezKillCam);
 
         PrezKillCam.PlayAnimFunction();
 

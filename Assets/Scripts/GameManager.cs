@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null)
             {
-                Debug.Log("This object was clicked: " + hit.collider.gameObject.name);
+                // Debug.Log("This object was clicked: " + hit.collider.gameObject.name);
                 hit.collider.gameObject.GetComponent<ClickEventsForShootingTargets>().ObjectClicked();
             }
             else
@@ -109,12 +109,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void LoseHeart(){
-        Debug.Log("LoseHeart called in GameManager.");
+        // Debug.Log("LoseHeart called in GameManager.");
 
         var fullHeart = Hearts.FirstOrDefault(x => x.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("Default"));
         
         if (fullHeart != null) {
-            Debug.Log("Full heart found.");
+            // Debug.Log("Full heart found.");
             fullHeart.gameObject.GetComponent<Animator>().Play("Flickering");
             fullHeart.sprite = Resources.Load<Sprite>("Images/Hearts/EmptyHeart");
 

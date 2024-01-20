@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PrezAnim : MonoBehaviour
 {
-    public Animator prezDeathAnim;
+    // public GameObject prez;
     public IEnumerator PlayAnim()
     {
+
+
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+                            Debug.LogError(sceneIndex);
+        GameObject prezClone = GameObject.FindGameObjectWithTag("Prez");
+        Animator prezDeathAnim = prezClone.GetComponent<Animator>();
         switch(sceneIndex)
         {
             case 3: prezDeathAnim.SetTrigger("Trigger 1"); break;
