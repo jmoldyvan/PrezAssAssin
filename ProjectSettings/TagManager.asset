@@ -18,6 +18,7 @@ TagManager:
   - phasebutton
   - ReadyPhase2
   - GameObject
+  - UICanvas
   layers:
   - Default
   - TransparentFX

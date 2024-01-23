@@ -3078,8 +3078,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 99174063}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 99174062}
+        m_TargetAssemblyTypeName: Loaders, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:

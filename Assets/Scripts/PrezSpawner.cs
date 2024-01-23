@@ -40,13 +40,17 @@ public GameObject SpawnPrez(Vector3Int floorTilemapRange, Tilemap floorTilemap, 
         if (prezInstance != null)
         {
             // Change the sprite for the Prez based on the current scene
-
             SpriteRenderer spriteRenderer = prezInstance.GetComponent<SpriteRenderer>();
             // Debug.LogError(prezInstance.GetComponent<SpriteRenderer>());
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
             // Debug.LogError(sceneIndex);
+            spriteRenderer.sprite = sceneSprites[sceneIndex];
 
-                spriteRenderer.sprite = sceneSprites[sceneIndex];
+            // GameObject UICanvas = GameObject.Find("UI Canvas");
+            // Transform child = UICanvas.transform.Find("PauseMenu/PrezTargert");
+            // GameObject PrezTargert = child.gameObject;
+            // SpriteRenderer PrezTargertSpriteRenderer = PrezTargert.GetComponent<SpriteRenderer>();
+            // PrezTargertSpriteRenderer.sprite = sceneSprites[sceneIndex];
 
         }
         else

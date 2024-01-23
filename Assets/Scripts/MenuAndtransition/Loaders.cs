@@ -34,8 +34,12 @@ public class Loaders : MonoBehaviour
     }
     public void QuitGame()
     {
-        
+        Debug.Log("QuitGame called");
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
         Application.Quit();
+        #endif
     }
 
     public IEnumerator LoadLevel(int levelIndex)
@@ -52,11 +56,34 @@ public class Loaders : MonoBehaviour
         phaseTransition.SetTrigger("PhaseTrigger");
 
     }
+    // public IEnumerator Pause()
+    // {
+    //     PauseGame();
+    //     yield return null;
+    // }
+    // public IEnumerator UnPause()
+    // {
+    //     UnPauseGame();
+    //     yield return null;
+    // }
+
+
 
     public void TransitionPhaseFunction()
     {
-        
         StartCoroutine(TransitionPhase());
     }
 
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        GameManager.Instance.canClickTinyMan = false;
+        // StartCoroutine(Pause());
+    }
+    public void UnPauseGame()
+    {
+        Time.timeScale = 1f;
+        GameManager.Instance.canClickTinyMan = true;
+        // StartCoroutine(UnPause());
+    }
 }

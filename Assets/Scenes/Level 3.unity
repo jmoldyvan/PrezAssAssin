@@ -35455,6 +35455,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1872293409944565819, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 839ddec4603fe3c4aa945a07da2d6b8c, type: 3}
+    - target: {fileID: 6692487869019376233, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 452.0949
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692487869019376233, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 390.473
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692487869019376233, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -536
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692487869019376233, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 110
+      objectReference: {fileID: 0}
     - target: {fileID: 9155119368741624689, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_Name
       value: UI Canvas
