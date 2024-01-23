@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
     public GameObject TinyMan;
     public GameObject Prez;
     public List<Image> Hearts;
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         public TinyManSpawner tinyManSpawner;
 
         public GameObject Phase2Button;
+        public bool canClickTinyMan = true;
 
     private Vector3Int floorTilemapRange = new Vector3Int(-90, 250, 0);
 
@@ -73,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canClickTinyMan)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             int layerMask = 1 << 6; 
