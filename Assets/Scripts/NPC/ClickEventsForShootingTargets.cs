@@ -8,31 +8,26 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 public class ClickEventsForShootingTargets : MonoBehaviour
 {
-
     public void ObjectClicked()
     {
-        
-
         if (gameObject.tag == "TinyMan")
         {
-            
             TriggerHeartAnimation();
         }
         else if (gameObject.tag == "Prez")
         {
-            
             CickedOnPrez();
         }
     }
 
     void TriggerHeartAnimation()
     {
-        
-        GameManager.Instance.LoseHeart();
+            GameManager.Instance.LoseHeart();            
     }
 
     void CickedOnPrez()
     {
+        GameManager.Instance.canClickTinyMan = false;
         GameObject[] TinyMans = GameObject.FindGameObjectsWithTag("TinyMan");
 
         foreach (GameObject obj in TinyMans)
@@ -52,7 +47,6 @@ public class ClickEventsForShootingTargets : MonoBehaviour
 
         GameObject GameyObby = GameObject.FindGameObjectWithTag("GameObject");
         PrezAnim PrezKillCam = GameyObby.GetComponent<PrezAnim>();
-        Debug.LogError(PrezKillCam);
 
         PrezKillCam.PlayAnimFunction();
 
