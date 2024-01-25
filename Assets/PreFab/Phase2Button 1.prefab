@@ -691,7 +691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -306}
+  m_AnchoredPosition: {x: 0, y: -426}
   m_SizeDelta: {x: 16.195679, y: 4.9799805}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7867113886156414944
@@ -1585,7 +1585,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.921}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.25, y: 15.59}
+  m_AnchoredPosition: {x: -0.4, y: 18.3}
   m_SizeDelta: {x: 18.18921, y: 21.55454}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3844496526338738581
@@ -1616,8 +1616,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WELL DONE. YOU MURDERED THE PRESIDENT. \n\nNOW YOU MUST ESCAPE.\n\nAVOID
-    THE SECRET SERVICE OR THEY WILL TAKE YOUR ASS DOWN.\n\nARE YOU READY???"
+  m_text: "NICE ONE. \nYOU MURDERED THE PRESIDENT. \n\nNOW YOU\nMUST ESCAPE. \nAVOID
+    THE \nSECRET SERVICE. \nGET TO THE HATCH.\n\nARE YOU READY???"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 680ebdea44acb4048b4c0e77eef1fe6f, type: 2}
   m_sharedMaterial: {fileID: -5335878929685748199, guid: 680ebdea44acb4048b4c0e77eef1fe6f, type: 2}
@@ -1626,8 +1626,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1644,19 +1644,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.49
-  m_fontSizeBase: 1.49
+  m_fontSize: 1.91
+  m_fontSizeBase: 1.91
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 4.23
-  m_wordSpacing: 31.86
-  m_lineSpacing: 0.6
+  m_wordSpacing: -3.97
+  m_lineSpacing: 4.5
   m_lineSpacingMax: 0
   m_paragraphSpacing: -13.89
   m_charWidthMaxAdj: 0
@@ -1680,7 +1680,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -2.3420553, y: 0, z: -2.0288906, w: -1.422615}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1722,8 +1722,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.009999117, y: 15.715566}
-  m_SizeDelta: {x: 21.68844, y: 24.94825}
+  m_AnchoredPosition: {x: 0.00999, y: 17.829645}
+  m_SizeDelta: {x: 27.91258, y: 27.48896}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2844014013475097740
 CanvasRenderer:

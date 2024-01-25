@@ -17,7 +17,7 @@ public class PrezAnim : MonoBehaviour
         {
             case 3: prezDeathAnim.SetTrigger("Trigger 1"); break;
             case 5: prezDeathAnim.SetTrigger("Trigger 2"); break;
-            case 7: prezDeathAnim.SetTrigger("Trigger 3"); break;
+            case 7: prezDeathAnim.SetTrigger("Trigger 5"); break;
             case 9: prezDeathAnim.SetTrigger("Trigger 3"); break;
             case 11: prezDeathAnim.SetTrigger("Trigger 4"); break;
         }
