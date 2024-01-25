@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5436,6 +5436,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6131560498701078823, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 1558092104}
     - target: {fileID: 6264069598830646476, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_LocalPosition.z
       value: -14
@@ -5452,6 +5456,10 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8454198829663943204, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 1558092104}
     - target: {fileID: 8589329687567500883, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_Name
       value: NotPausedUI
@@ -5460,6 +5468,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 9054296164621339725, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 1247491000}
+    - target: {fileID: 9054296164621339725, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: phaseTransition
+      value: 
+      objectReference: {fileID: 1247491000}
+    - target: {fileID: 9054296164621339725, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: resetTransition
+      value: 
+      objectReference: {fileID: 1247491000}
     - target: {fileID: 9155119368741624689, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_Name
       value: UI Canvas
@@ -14498,6 +14518,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!95 &1247491000 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 737491786771423443, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
+  m_PrefabInstance: {fileID: 646520874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1289502544
 GameObject:
   m_ObjectHideFlags: 0
@@ -14810,6 +14835,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1558092104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6224658044077184006, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
+  m_PrefabInstance: {fileID: 646520874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89477d7ec3b1a2445ab9f1201639c553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1657245880
 GameObject:
   m_ObjectHideFlags: 0
