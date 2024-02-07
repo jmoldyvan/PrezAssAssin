@@ -324,19 +324,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 61352877}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 337130265}
-        m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: Select
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &61352877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,7 +653,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: fdf32b11e1b0a4741b0f2eb3efdba7f2, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 6d5e88294500ffc48a60ef6679aa7578, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: 78c9efdfcf260e342bcfd1a19fe48686, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -967,6 +955,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 715633832}
+  LevelButtons:
+  - {fileID: 63510330}
+  - {fileID: 158520886}
+  - {fileID: 942574104}
+  - {fileID: 520714840}
+  - {fileID: 1444311126}
 --- !u!4 &337130266
 Transform:
   m_ObjectHideFlags: 0
@@ -1271,7 +1265,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 28041fea18a0eac43b4139f0785d5316, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: ca1eb34f8d9b1804e97fde32b86d19ef, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: 4dfa4baada079c64d8150e4f23f32020, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -2066,7 +2060,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 55ffa4f9cf60b1a4ba99b774a18fbac6, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: ee1f55ae30188c74b868a99defc84536, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: e7701fc6285f5f94baa49de012ab9682, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -2110,7 +2104,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3a756155787c3d241a7904cbe5938ac1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1c57c16f70e1ec4b8c2b40a10f43c16, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2877,7 +2871,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: c2b0312d3aa843142984f11bb4b95ddc, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 511b861b57a69a54dac19747561458ac, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: 06e08c6e3731eb94bbd7b2b31e811665, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
