@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -444,7 +444,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6841ed2dbd857e54d879fdff7e9f7993, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 0d6e337393015814b8afb43cd99e9522, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: c1bef64dde826bf44945f519d427c1d6, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -662,7 +662,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 5fa7d5a54376c9e4cb66663466d80b92, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: fdf32b11e1b0a4741b0f2eb3efdba7f2, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 6d5e88294500ffc48a60ef6679aa7578, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -1023,7 +1023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -176}
+  m_AnchoredPosition: {x: 0, y: -148}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &470147909
@@ -1268,7 +1268,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f2d86eff354d8fb4093d67bbd5528b78, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 28041fea18a0eac43b4139f0785d5316, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: ca1eb34f8d9b1804e97fde32b86d19ef, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -1402,8 +1402,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -1838,7 +1838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3847575079076565016, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5099340983488095883, guid: 4aac31f4e6d0ed046bc52b682444be0f, type: 3}
       propertyPath: m_Layer
@@ -2063,7 +2063,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: c9168fce0f839584bb037e2e30e33321, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 55ffa4f9cf60b1a4ba99b774a18fbac6, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: ee1f55ae30188c74b868a99defc84536, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -2974,7 +2974,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.020935059, y: -91.05712}
+  m_AnchoredPosition: {x: 0.020996094, y: -91.05713}
   m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1607499928
@@ -3098,7 +3098,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 254991226}
   m_HandleRect: {fileID: 254991225}
   m_Direction: 0
-  m_Value: 0.50000006
+  m_Value: 0.49999997
   m_Size: 0.25841868
   m_NumberOfSteps: 0
   m_OnValueChanged:
