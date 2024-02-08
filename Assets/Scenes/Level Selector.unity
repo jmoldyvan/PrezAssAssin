@@ -375,7 +375,6 @@ GameObject:
   - component: {fileID: 63510332}
   - component: {fileID: 63510331}
   - component: {fileID: 63510330}
-  - component: {fileID: 63510333}
   m_Layer: 5
   m_Name: Level 1
   m_TagString: Untagged
@@ -498,21 +497,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63510328}
   m_CullTransparentMesh: 1
---- !u!114 &63510333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63510328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!1 &115633187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,7 +1017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 605, y: -163}
+  m_AnchoredPosition: {x: 529, y: -167}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &470147909
@@ -3108,7 +3092,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 254991226}
   m_HandleRect: {fileID: 254991225}
   m_Direction: 0
-  m_Value: 0.09304013
+  m_Value: 0.14416236
   m_Size: 0.25841868
   m_NumberOfSteps: 0
   m_OnValueChanged:
