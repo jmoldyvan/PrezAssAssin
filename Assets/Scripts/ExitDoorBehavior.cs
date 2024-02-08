@@ -1,11 +1,15 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using System;
+using Random = UnityEngine.Random;
+using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 public class ExitDoorBehavior : MonoBehaviour
 {
+    public GameManager gameManager;
     public GameObject Player;
     // public Animator animator;
     public GameObject BackToMainMenuPrefab;
@@ -28,6 +32,8 @@ public class ExitDoorBehavior : MonoBehaviour
         originalFixedDeltaTime = Time.fixedDeltaTime;
     }
 
+
+// LEVEL WON HERE
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -42,6 +48,7 @@ public class ExitDoorBehavior : MonoBehaviour
         GameObject createPhase2Button = Instantiate(Phase2Button, Phase2ButtonPosition, rotation);
             StartCoroutine(ShrinkPlayer());
             PauseGame();
+            gameManager.WinLevel();
         }
     }
 

@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
         public GameObject Phase2Button;
         public bool canClickTinyMan = true;
+    public string nextLevel = "Level02";
+    public int LevelToUnlock = 2;
 
     private Vector3Int floorTilemapRange = new Vector3Int(-90, 250, 0);
 
@@ -213,5 +215,10 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void WinLevel()
+    {
+        PlayerPrefs.SetInt("levelReached", LevelToUnlock);
     }
 }
