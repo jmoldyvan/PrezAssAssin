@@ -9,7 +9,6 @@ using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 public class ExitDoorBehavior : MonoBehaviour
 {
-    public GameManager gameManager;
     public GameObject Player;
     // public Animator animator;
     public GameObject BackToMainMenuPrefab;
@@ -48,7 +47,7 @@ public class ExitDoorBehavior : MonoBehaviour
         GameObject createPhase2Button = Instantiate(Phase2Button, Phase2ButtonPosition, rotation);
             StartCoroutine(ShrinkPlayer());
             PauseGame();
-            gameManager.WinLevel();
+            GameManager.Instance.WinLevel();
         }
     }
 

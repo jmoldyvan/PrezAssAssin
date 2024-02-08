@@ -219,6 +219,7 @@ public class GameManager : MonoBehaviour
 
     public void WinLevel()
     {
+        Debug.Log("winlevel");
         PlayerPrefs.SetInt("levelReached", LevelToUnlock);
     }
 }

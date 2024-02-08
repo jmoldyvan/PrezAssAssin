@@ -31487,6 +31487,8 @@ MonoBehaviour:
   tinyManSpawner: {fileID: 734642116}
   Phase2Button: {fileID: 0}
   canClickTinyMan: 1
+  nextLevel: Level03
+  LevelToUnlock: 3
 --- !u!4 &1467505508
 Transform:
   m_ObjectHideFlags: 0
