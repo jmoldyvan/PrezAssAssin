@@ -389,23 +389,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &294793430
+--- !u!114 &294793431 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8454198829663943204, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+  m_PrefabInstance: {fileID: 770087837}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294793427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89477d7ec3b1a2445ab9f1201639c553, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f43b00ee4f50a642acc0b32daba9056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 0}
-  phaseTransition: {fileID: 0}
-  resetTransition: {fileID: 0}
-  transitionTime: 1
-  phaseTransitionTime: 3
 --- !u!1 &305200749
 GameObject:
   m_ObjectHideFlags: 0
@@ -5311,7 +5305,7 @@ PrefabInstance:
     - target: {fileID: 1666894829001487539, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 294793430}
+      objectReference: {fileID: 0}
     - target: {fileID: 1666894829001487539, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
@@ -5395,7 +5389,7 @@ PrefabInstance:
     - target: {fileID: 4515549412236157580, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 294793430}
+      objectReference: {fileID: 0}
     - target: {fileID: 4515549412236157580, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
@@ -5415,7 +5409,7 @@ PrefabInstance:
     - target: {fileID: 5219135379357554218, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 294793430}
+      objectReference: {fileID: 0}
     - target: {fileID: 5219135379357554218, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
@@ -5479,6 +5473,26 @@ PrefabInstance:
     - target: {fileID: 8589329687567500883, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_Name
       value: NotPausedUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696272441051980670, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696272441051980670, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 294793431}
+    - target: {fileID: 8696272441051980670, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696272441051980670, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelSelector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696272441051980670, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8842777544074258596, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: m_Name
@@ -15777,6 +15791,8 @@ MonoBehaviour:
   tinyManSpawner: {fileID: 1291091355}
   Phase2Button: {fileID: 7384720331686068238, guid: 31db7424f240871409e0a2f0b69f19fb, type: 3}
   canClickTinyMan: 1
+  nextLevel: Level02
+  LevelToUnlock: 2
 --- !u!4 &2122003560
 Transform:
   m_ObjectHideFlags: 0

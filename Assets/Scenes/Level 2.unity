@@ -540,6 +540,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &327108324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8454198829663943204, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+  m_PrefabInstance: {fileID: 409621868}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f43b00ee4f50a642acc0b32daba9056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &327158977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,6 +2955,26 @@ PrefabInstance:
       propertyPath: transition
       value: 
       objectReference: {fileID: 646520875}
+    - target: {fileID: 8696272441051980670, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696272441051980670, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 327108324}
+    - target: {fileID: 8696272441051980670, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696272441051980670, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelSelector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696272441051980670, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9054296164621339725, guid: d194bcd9e3b7f504bae519821ae826ce, type: 3}
       propertyPath: transition
       value: 
